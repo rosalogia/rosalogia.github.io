@@ -1,0 +1,190 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Ambika Eshwar</title>
+        <link>rosalogia.github.io/posts/</link>
+        <description>Recent content in Posts on Ambika Eshwar</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Sat, 05 Sep 2020 23:36:21 -0400</lastBuildDate>
+        <atom:link href="rosalogia.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Setting Up a Discord Bot Development Environment with Python</title>
+            <link>rosalogia.github.io/posts/rucs24-setup/</link>
+            <pubDate>Sat, 05 Sep 2020 23:36:21 -0400</pubDate>
+            
+            <guid>rosalogia.github.io/posts/rucs24-setup/</guid>
+            <description>This guide was originally written to meet the particular needs of the Rutgers Computer Science - Class of 2024 Discord Bot, and has been included on this site because I personally feel that it is a generally useful and informative guide for those who have never developed outside of an academic environment, and wish to familiarise themselves with the tools and procedures of open source development.
+RUCS24-Bot is a Discord bot written in Python.</description>
+            <content type="html"><![CDATA[<p>This guide was originally written to meet the particular needs of the
+<a href="https://github.com/rosalogia/rucs24-bot">Rutgers Computer Science - Class of 2024 Discord Bot</a>, and has been included on this
+site because I personally feel that it is a generally useful and informative guide for those who have never developed outside of
+an academic environment, and wish to familiarise themselves with the tools and procedures of open source development.</p>
+<p>RUCS24-Bot is a Discord bot written in Python. To begin working on its development, you&rsquo;re going to need five things in particular:</p>
+<ul>
+<li>Python 3.8 installed</li>
+<li>A text editor to write Python in</li>
+<li><code>git</code>, a popular version control tool</li>
+<li><a href="https://discordpy.readthedocs.io/en/latest/">discord.py</a>, the standard Python discord library</li>
+<li>Your own discord bot application registered with Discord to test your additions with</li>
+</ul>
+<p>In this <strong>comprehensive</strong> guide we&rsquo;re going to describe the steps you&rsquo;ll need to take to set up all of these things and begin contributing to our bot.</p>
+<p>Note that this guide is in fact <strong>comprehensive</strong>, more so than any seasoned programmer will need it to be. That is because it is for beginners who have only ever programmed in personal or academic environments. If you already feel comfortable with one of the tools listed above, feel free to use the following table to skip to whichever ones are still relatively new to you.</p>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="#installing-python">Installing Python</a></li>
+<li><a href="#text-editor">Text Editor</a></li>
+<li><a href="#installing-and-using-git">Installing and Using Git</a></li>
+<li><a href="#Setting-Up-a-Testing-Environment-for-RUCS24-Bot">Setting Up a Testing Environment for RUCS24-Bot</a></li>
+</ul>
+<h2 id="installing-python">Installing Python</h2>
+<p>Python is an interpreted programming language, so we need to install the Python interpreter, as well as the set of tools it usually comes packaged with. Unless you&rsquo;re on a popular distribution of Linux, you should find, download and install Python 3.8.5 or newer from <a href="https://www.python.org/downloads/">this webpage</a>. When running the installer, make sure you select the option to add Python to your PATH. This is crucial for running your Discord bot. If you fail to perform this step, you can always <a href="https://datatofish.com/add-python-to-windows-path/">fix it</a> later, so don&rsquo;t get anxious.</p>
+<p>If you&rsquo;re running a popular distribution of Linux, particularly one that isn&rsquo;t commonly used for LTS servers like CentOS, it is unlikely that you will need to install Python through the Python website. Instead, you probably can and <em>should</em> install Python through your distribution&rsquo;s package manager. Here are some instructions for some popular Linux distributions</p>
+<h3 id="ubuntu">Ubuntu</h3>
+<pre><code>$ sudo apt-get install software-properties-common
+$ sudo add-apt-repository ppa:deadsnakes/ppa
+$ sudo apt-get update
+$ sudo apt-get install python3.8
+</code></pre><h3 id="fedora">Fedora</h3>
+<pre><code>$ sudo dnf install python38
+</code></pre><h3 id="arch-linux">Arch Linux</h3>
+<pre><code>$ sudo pacman -S python
+</code></pre><p>Note that depending on your distribution, the Python command in your path may point to different versions of Python. You may need to use a command like <code>python3.8</code> or <code>python3</code> instead of <code>python</code> when running the bot.</p>
+<h2 id="text-editor">Text Editor</h2>
+<p><strong>IMPORTANT</strong>: Read the <a href="#note-on-privacy-and-visual-studio-codium">Note on Privacy &amp; Visual Studio Codium</a> before choosing to install Visual Studio Code.</p>
+<p>There is no text editor that is decidedly or objectively the best for your or our purposes. We can only make a recommendation based on what&rsquo;s currently viable, popular, convenient and user-friendly. As you become a more experienced programmer, consider taking the time to familiarise yourself and experiment with various tools for programmers and carefully weigh and evaluate them to choose which one works best for you.</p>
+<p>We&rsquo;re going to suggest Visual Studio Code because it&rsquo;s free, open source, popular [which means there are lots of people on the internet asking and answering questions about how to use it or solve its common problems], and has lots of support for writing Python conveniently. It&rsquo;s also a professionally used tool, rather than an environment you will have to leave behind when you are past the &ldquo;learner&rdquo; stage.</p>
+<p>You can learn more about Visual Studio Code and download it <a href="https://code.visualstudio.com/">here</a>. Unless you are using a non-debian based or non-fedora based Linux distribution, you should be able to conveniently download and install VS Code from this link. However, if you are using another distribution, like Arch Linux, you should install it through your package manager, or download the provided tarball and extract it.</p>
+<p>After installing VS Code, you should install the Python extension:
+<img src="assets/py-extension.png" alt="Python Extension"></p>
+<p>You can verify that your installation of Python, VS Code, and the Python extension are all working as expected by creating a simple demo project in a folder of your choosing.</p>
+<p>In the VS Code <code>File</code> menu, select Open Folder (or if you prefer to learn Keyboard Shortcuts, press <code>Control + K</code> followed by <code>Control + O</code>, you can even keep the Control key held down between both of them if you&rsquo;d like) and select or create a folder that you want your demo project to live in.</p>
+<p>Once you select a folder, VS Code will create a workspace there. Click on the New File icon located on the left-hand side of your workspace (or, press <code>Control+Shift+P</code> and type in <code>new file</code> and hit enter) and name it <code>main.py</code>.</p>
+<p>The file you created should open up on the right-hand side of your workspace. Begin typing in some code, like &hellip;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Hello&#34;</span>)
+</code></pre></div><p>If everything is going well, you should see the editor begin to suggest (or &ldquo;auto-complete&rdquo;) common or predicted completions for the code you&rsquo;re in the process of typing out. This feature is incredibly useful, and if you haven&rsquo;t already been taking advantage of it, you should definitely get comfortable with it.</p>
+<p>Once you have saved your <code>main.py</code> file, create a terminal within VS Code by clicking on the <code>Terminal</code> menu at the top of the window and selecting <code>New Terminal</code> or with the keyboard shortcut Control+Shift+`.</p>
+<p>In the terminal, type in <code>python main.py</code> to run the program. If this does not work, try variations like <code>python3 main.py</code>, <code>py main.py</code> or <code>python38 main.py</code>, as different operating systems may refer to the Python 3.8.5 interpreter differently. If this doesn&rsquo;t work, it may be the case that Python was not successfully added to your PATH. Check the instructions linked above to resolve this issue.</p>
+<h3 id="additional-set-up">Additional Set Up</h3>
+<h4 id="linting">Linting</h4>
+<p>A &ldquo;linter&rdquo; in software development is a tool that analyses your code for bad style. Code should be consistent and readable. Many open source projects enforce a style guide, and so do many professional spaces. Some projects and companies have their own standards for code style, but RUCS24-Bot adheres strictly to the standard set of style guidelines for Python, known as <a href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>.</p>
+<p>Obviously, you&rsquo;re not expected to learn and memorise PEP 8 in order to contribute. Most programmers install a linter, like <a href="https://pypi.org/project/flake8/">flake8</a>, so that their text editor can tell them when they&rsquo;re writing code that doesn&rsquo;t conform to the style guide. Additionally, there are tools like <a href="https://pypi.org/project/black/">Black</a> that you can install and run on all of your code to automatically reformat it according to official style guidelines.</p>
+<p>Consider installing <code>flake8</code> and setting up VS Code to use it like so:</p>
+<ol>
+<li>Run <code>pip install flake8</code> or <code>pip3 install flake8</code> in a terminal.
+<ul>
+<li>You can open one up right where you are in VS Code by clicking on the <code>Terminal</code> menu at the top of VS Code and selecting <code>New Terminal</code> or pressing Control+Shift+`</li>
+</ul>
+</li>
+<li>Navigate to <code>File &gt; Preferences &gt; Settings</code> or press <code>Control + Comma</code> to open up your settings, and search for &ldquo;flake8&rdquo;</li>
+<li>Make sure the following checkbox is ticked: <img src="assets/flake_8.png" alt="Flake8"></li>
+</ol>
+<p>To test that it is properly working, try creating a comment like this in your code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Improperly formatted comment</span>
+</code></pre></div><p>Then save your file. You should see a squiggle appear under your comment, and hovering over it should display a window describing the problem.</p>
+<h3 id="note-on-privacy-and-visual-studio-codium">Note on Privacy and Visual Studio Codium</h3>
+<p>Visual Studio Code is an open source text editor developed by Microsoft, however it is commonly known and acknowledged that the version of VS Code that is distributed on the link above includes software that collects and tracks information about your computer usage and sends it to Microsoft for analysis. This is known as &ldquo;telemetry.&rdquo; Some users are, rightfully, uncomfortable with this and are unwilling to use a text editor that violates your privacy to the degree that VS Code does.</p>
+<p>However, this problem only exists with the version of VS Code that Microsoft distributes on their website. The problem can be circumvented entirely by downloading and compiling the VS Code source-code. Compiling a large program from source can take a lot of time and can be confusing to new programmers, so a group of people have pre-compiled VS Code without the telemetry features, and are distributing it as <a href="https://vscodium.com/">Visual Studio Codium</a>.</p>
+<p>There are no downsides to using this version of VS Code, and it is recommended that you do if you care about your privacy and are uncomfortable with a large corporation receiving data about how you use your computer and its tools. The link above includes more information on the Codium project as well as installation instructions for various operating systems.</p>
+<h2 id="installing-and-using-git">Installing and Using Git</h2>
+<p><code>git</code> is the name of a software package whose explicit purpose is &ldquo;version control.&rdquo; Version control is the process of keeping track of the changes made to a set of files or documents over a long period of time, such that if there&rsquo;s ever anything wrong with the current version of those files/documents, you will be able to see which particular change caused the problem, and &ldquo;go back in time&rdquo; to a version where the problem didn&rsquo;t exist.</p>
+<p>Programmers need this often for shared projects. Sometimes someone will make a change to the codebase that can cause major problems, or might accidentally delete a large portion of the code. How should this be dealt with? The best approach is a version control system that keeps track of &hellip;</p>
+<ul>
+<li>Who is making a change</li>
+<li>Why they&rsquo;re making it</li>
+<li>How to undo that change if necessary</li>
+</ul>
+<p><code>git</code> does all three of these things, and is the most popular version control system for open source software development. In an open source project, several hundreds or even thousands of unique individuals might be responsible for contributing to the codebase, and this leaves lots of room for accidents and mistakes. Using a reliable version control system, as well as backing up the project on a server, helps mitigate any of the easier-to-trigger catastrophes.</p>
+<p>A guide for installing <code>git</code> is available <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>.</p>
+<p>Note that <code>git</code> and GitHub are two separate but [unofficially] related things. While neither one has control or ownership over the other, <code>git</code> is a tool that you install and use locally, and GitHub is a website for hosting, viewing, contributing to and managing <code>git</code> <em>repositories</em>, which are essentially project folders that are version controlled by <code>git</code>.</p>
+<p>This means that you can [and should] use <code>git</code> even if your project is not uploaded to GitHub. <code>git</code> is extremely useful even if you are the only person developing your project. It helps you be organised and stops you from making mistakes that might end up wasting a lot of your time.</p>
+<p>Let&rsquo;s try using <code>git</code> with the Demo project we made earlier. Once you&rsquo;ve installed <code>git</code>, you should be able to use it from within a terminal you create in VS Code. In your Demo folder, run the command <code>git init</code> to turn your folder into a <code>git</code> repository. You should see VS Code responding to this. Particularly, the <em>source control</em> icon should now have a little 1 next to it, indicating that 1 modification has been detected in the source of the project.</p>
+<p><img src="assets/src_control.png" alt="Source control"></p>
+<p>When using <code>git</code>, you are in control of which files should be version controlled and which files can safely be ignored by git. Some files have no reason to be version controlled. For example, your personal configuration file for the RUCS24-Bot should never be version controlled, as it should contain the token [essentially the username and password] for your bot account. Because of this, we have created a file in RUCS24-Bot&rsquo;s repository called <code>.gitignore</code>, which <code>git</code> automatically detects and reads to find out which files should never be version controlled. However, this works no differently than simply remembering to never add a certain file to version control. It is simply more convenient.</p>
+<p>Let&rsquo;s tell <code>git</code> to track and version control our <code>main.py</code> file. There are two ways you can do this. The first is to use the <code>Stage Changes</code> button (a + symbol) in the VS Code source control panel, type in a &ldquo;commit message&rdquo; which describes the change you made, and then press Ctrl+Enter in the &ldquo;commit message&rdquo; box to finalise your changes. However, keep in mind that even &ldquo;finalised&rdquo; changes can be reverted because <code>git</code> version controls your files.</p>
+<p>The second way to go about this is through the command line: you can type in <code>git add main.py</code> to &ldquo;stage&rdquo; your changes, and <code>git commit -m &quot;Your commit message&quot;</code> to finalise those changes.</p>
+<p><code>git</code> has tons of subcommands capable of all sorts of complex behaviours, and as a programmer you should strive to learn more of them. Sometimes you will make mistakes with <code>git</code> that will freak you out or make you break into a sweat, or otherwise frustrate you. Be patient with yourself, and practice your ability to find solutions on the internet. There usually will be one waiting for the most patient individual.</p>
+<h3 id="using-github">Using GitHub</h3>
+<p>GitHub is an online platform for hosting, viewing, contributing to and managing <code>git</code> repositories. RUCS24-Bot is hosted and managed on GitHub, and to contribute to it you will need a GitHub account. We will briefly go over how to use <code>git</code> when working in a repository hosted on GitHub.</p>
+<ol>
+<li>Create a GitHub account at <a href="https://github.com/">github.com</a></li>
+<li>Click on the + button at the top right and select &ldquo;New repository&rdquo;</li>
+<li>Name the repository &ldquo;demo&rdquo; and click &ldquo;create repository&rdquo;
+<ul>
+<li>Do NOT check any of the boxes above the &ldquo;create repository&rdquo; button</li>
+</ul>
+</li>
+</ol>
+<p>You should be met with some potentially daunting instructions. These are the ones we need:</p>
+<p><img src="assets/github_instructions.png" alt="GitHub instructions"></p>
+<p>You should be able to paste in every command listed to your terminal and face few to no problems. However, we should understand what&rsquo;s going on, even if only at the surface level.</p>
+<p><code>git remote add origin ...</code> is a command that adds a <code>git</code> &ldquo;remote&rdquo; called &ldquo;origin&rdquo;. A remote is a server, a computer other than yours that yours connects to in order to send and receive data, that hosts a git repository. <code>git</code> allows you to add remote hosts that you can send the contents of your local <code>git</code> repository to. GitHub exists primarily to be a remote host for <code>git</code> repositories, so this makes sense.</p>
+<p><code>git branch -M master</code> is a safety measure. GitHub requires that the &ldquo;main&rdquo; branch of your <code>git</code> project is called &ldquo;master&rdquo;. This command forcefully renames the current branch to master, in case you have renamed it for any reason.</p>
+<p><code>git push -u origin master</code> is the command that &ldquo;pushes&rdquo; i.e. uploads all of your local commits to the &ldquo;master&rdquo; branch of the &ldquo;origin&rdquo; remote. From this point on, you can push future commits with the command <code>git push</code> rather than typing out the whole <code>git push -u origin master</code>. However, you should know that <code>git push</code> will <em>only</em> upload changes that have been committed. If you have local changes that you have not staged and committed, <code>git push</code> will not upload them. You can experiment with this as much as you would like.</p>
+<p>Remember that the basic workflow for adding to a <code>git</code> repository is the following:</p>
+<ol>
+<li>Make changes</li>
+<li><code>git add</code> the changed files</li>
+<li><code>git commit -m &quot;A message mentioning the changes you made&quot;</code></li>
+<li><code>git push</code></li>
+</ol>
+<p>Experiment with repeating this process with simple little changes to your <code>main.py</code> file in your Demo project as many times as you need to to get used to it.</p>
+<h2 id="setting-up-a-testing-environment-for-rucs24-bot">Setting Up a Testing Environment for RUCS24-Bot</h2>
+<p><a href="https://discordpy.readthedocs.io/en/latest/">discord.py</a> is the most popular Python library for developing Discord applications. In this step of the guide, we will first make a &ldquo;fork&rdquo; of the RUCS24-Bot repository, make our own Discord bot account so that we can test it out, and finally we will install <a href="https://discordpy.readthedocs.io/en/latest/">discord.py</a> and run the RUCS24-Bot for testing purposes in our own private testing server. From here, you will be ready to make changes and additions to RUCS24-Bot that might eventually be merged into the version that runs in the RUCS24 server.</p>
+<h3 id="forking-and-cloning-rucs24-bot">Forking and Cloning RUCS24-Bot</h3>
+<h4 id="forking">Forking</h4>
+<p>A &ldquo;fork&rdquo; of an open source software project is a clone of it that is maintained and developed by a person other than the original creator. Forks enable a handful of community behaviours from the get-go. For example, if a person is unhappy with the direction in which an open source project is heading, they can fork the project at a commit where they were happy with it, and continue developing or using it in the direction they prefer. Another reason to fork a repository might be that the original creator is no longer interested or capable of maintaining and growing the project, so a more enthusiastic contributor might fork it and theirs might become the more popular and regularly updated version of the project.</p>
+<p>There is a much more common reason to fork a project on GitHub, however. When a person who isn&rsquo;t close friends or associates with the creator of a GitHub repository wants to contribute to that repository, they need a way to edit and suggest changes to the repository that the original maintainer can accept or reject. The most popular way to do this is by having the contributor fork the main project, make the changes they want to see, then make a &ldquo;Pull Request&rdquo; to the main/original repository. A Pull Request is a request on the behalf of the contributor to have the changes on their fork of a project &ldquo;merged&rdquo; into the main project by the main project&rsquo;s maintainer.</p>
+<p>If all of this is confusing, consider reading <a href="https://www.dataschool.io/how-to-contribute-on-github/">this guide</a> that explains all of the above in much greater detail with screenshot examples.</p>
+<p>Navigate to the <a href="https://github.com/rosalogia/rucs24-bot">RUCS24-Bot repository</a> and click on the &ldquo;Fork&rdquo; button at the top right corner underneath the + symbol you used to create a new repository earlier. This will create a forked repository under your account called <code>rucs24-bot</code> that you can make changes to as you&rsquo;d like. Note, however, that messy and unwanted changes will need to be removed before any Pull Requests are made.</p>
+<h4 id="cloning">Cloning</h4>
+<p>Open a terminal, either externally or through VS Code, and navigate to a folder that you want to contain your Python projects. On most operating systems, you can navigate to a specific folder with the command <code>cd</code> followed by the proper file path.</p>
+<p>On Linux or Mac you might do <code>cd ~/Projects/Python/</code> if you have already created the <code>Projects</code> folder and the <code>Python</code> folder underneath of that.</p>
+<p>On Windows, you might do <code>cd C:\Projects\Python\</code> if you have already created those same folders.</p>
+<p>If you want to create those folders from the command line, you can use the <code>mkdir</code> command.</p>
+<p>For example, <code>mkdir ~/Projects</code> followed by <code>mkdir ~/Projects/Python</code> on Linux or Mac, and <code>mkdir C:\Projects</code> followed by <code>mkdir C:\Projects\Python</code> on Windows.</p>
+<p>Once you have navigated to your preferred folder for storing Python projects in your terminal, navigate to your fork of the RUCS24-Bot repository and click on the green &ldquo;Code&rdquo; button and click on the clipboard that appears next to the HTTPS URL as shown here:</p>
+<p><img src="assets/clone.png" alt="Clone"></p>
+<p>Back in your terminal, now in the directory where you wish to store your Python projects, run the command <code>git clone &lt;repository_url&gt;</code> where <code>&lt;repository_url&gt;</code> is replaced by whatever you have copied from the GitHub repository.</p>
+<p>For me this looks like <code>git clone https://github.com/rosalogia/rucs24-bot.git</code>.</p>
+<p>Once this command finishes running, you should find that a new folder has been created inside the folder your currently in. This folder contains the code for your fork of the RUCS24-Bot, and it is yours to make changes and additions to. Make sure you open this folder up in VS Code before the next step.</p>
+<h3 id="installing-discordpy-and-creating-a-bot-account">Installing discord.py and Creating a Bot Account</h3>
+<p>The Python package manager <code>pip</code>, or on some computers, <code>pip3</code> is what we use to install libraries and packages to be used in our Python code. You can use it either by manually specifying a package you would like to install, like so:</p>
+<p><code>pip install discord.py</code></p>
+<p>Otherwise, if you have a <code>requirements.txt</code> file available that lists all the packages required by a project, you can have <code>pip</code> read from that file and install all the packages listed inside of it. RUCS24-Bot has one of these, so from the terminal in your project folder, run <code>pip install -r requirements.txt</code>.</p>
+<p>The library is now installed, but we can&rsquo;t actually run RUCS24-Bot yet. Discord bots are actual accounts that can be invited to servers and interact with the users in a server, but are managed with more restrictions than normal user accounts in order to limit potential exploitation. Nonetheless, any Discord bot that you intend to run will have to have its account created and registered through Discord. After doing this, Discord will give us its &ldquo;token,&rdquo; essentially its username and password encoded in one long string, that we can provide to <a href="https://discordpy.readthedocs.io/en/latest/">discord.py</a> in order to have it log in with our bot&rsquo;s account.</p>
+<p>To create a bot account &hellip;</p>
+<ol>
+<li>Navigate to the <a href="https://discord.com/developers">Discord Developer Portal</a></li>
+<li>Select &ldquo;New Application&rdquo; in the top right and give it a name of your choosing</li>
+<li>Select the &ldquo;Bot&rdquo; menu on the left hand side of the screen</li>
+<li>Click &ldquo;Add Bot&rdquo; on the right-hand side of the screen and confirm that you would like to do this when asked</li>
+<li>Find the &ldquo;Token&rdquo; section and click &ldquo;Copy&rdquo;
+<ul>
+<li>Note: if by chance your token accidentally gets leaked, immediately navigate to this page again and click the &ldquo;Regenerate&rdquo; button that you see next to the &ldquo;Copy&rdquo; button. This will stop anyone who has come across your bot&rsquo;s token from logging in with it and doing potentially destructive things in the servers you&rsquo;ve invited your bot to.</li>
+</ul>
+</li>
+</ol>
+<p>Now that you have the bot&rsquo;s token copied, you have to create a <code>config.json</code> file that RUCS24-Bot can look into in order to find the bot&rsquo;s token and log in with it. Create a new file in the project folder with VS Code called <code>config.json</code> that looks like this</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+	<span style="color:#f92672">&#34;botToken&#34;</span> : <span style="color:#e6db74">&#34;PASTE_YOUR_TOKEN_BETWEEN_QUOTES_HERE&#34;</span>
+}
+</code></pre></div><p>We are getting closer and closer to having a fully running version of the RUCS24-Bot that you can play with and test while developing it further. There are a few more important steps.</p>
+<p>Firstly, you should create an empty Discord server of your own that you can invite your bot account to.</p>
+<p><img src="assets/server_create.png" alt="Server Create"></p>
+<p>Now we will invite the bot to the server. Return to the page on <a href="https://discord.com/developers">discord.com</a> where you created your bot. On the left-hand side, select &ldquo;General Information&rdquo; and find the section labelled &ldquo;Client ID&rdquo;.</p>
+<p>In order to invite your bot to your server, you must create a special link that incorporates its client id that looks like this:</p>
+<p><a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID_GOES_HERE&amp;scope=bot&amp;permissions=8">https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID_GOES_HERE&amp;scope=bot&amp;permissions=8</a></p>
+<p>This link will not work until you replace the capitalised text with your bot&rsquo;s client id. Once you do replace the text and navigate to the link, you will be prompted to select which server [of those in which you are an administrator] you would like to invite the bot to. Select the one you recently created.</p>
+<p>You should find that your bot account has popped up in your server, but that it is offline. We are one step away from fixing this.</p>
+<p>Return to your terminal in VS Code and, finally, run <code>python main.py</code>. You should find that your bot begins to run after a few seconds, and that your bot account is online. You can test it out with the <code>!help</code> command, which will show you how to access its other features.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations on making it through this guide! It is entirely too long, but it is <em>comprehensive</em>. Hopefully those who were looking for such a comprehensive guide are satisfied by this one.</p>
+<p>If you are impatient (which isn&rsquo;t bad; enthusiasm is good), you may begin messing with the bot&rsquo;s code right away by accessing the <a href="https://github.com/rosalogia/rucs24-bot/blob/master/CONTRIBUTING.md#cog-quickstart">Cog Quickstart</a> in the contribution guide and following along, then editing it to your pleasure. You may also observe and tinker with other existing cogs to understand how they work and how the library works in general. You can explore the library further and read about how it works at its <a href="https://discordpy.readthedocs.io/en/latest/#documentation-contents">official documentation</a> webpage.</p>
+<p>We hope you will enjoy working on RUCS24-Bot, learn valuable skills while doing so, and that you will never have to read anything of this length to get up and running with an open source project ever again. A lot of this information will transfer over to other projects, so try not to consider it time wasted! Your time and attention is much appreciated, and so are your contributions to RUCS24-Bot.</p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>
