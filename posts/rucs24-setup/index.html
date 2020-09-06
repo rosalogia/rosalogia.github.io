@@ -188,7 +188,7 @@ $ sudo apt-get install python3.8
 <p>We&rsquo;re going to suggest Visual Studio Code because it&rsquo;s free, open source, popular [which means there are lots of people on the internet asking and answering questions about how to use it or solve its common problems], and has lots of support for writing Python conveniently. It&rsquo;s also a professionally used tool, rather than an environment you will have to leave behind when you are past the &ldquo;learner&rdquo; stage.</p>
 <p>You can learn more about Visual Studio Code and download it <a href="https://code.visualstudio.com/">here</a>. Unless you are using a non-debian based or non-fedora based Linux distribution, you should be able to conveniently download and install VS Code from this link. However, if you are using another distribution, like Arch Linux, you should install it through your package manager, or download the provided tarball and extract it.</p>
 <p>After installing VS Code, you should install the Python extension:
-<img src="assets/py-extension.png" alt="Python Extension"></p>
+<img src="/images/py-extension.png" alt="Python Extension"></p>
 <p>You can verify that your installation of Python, VS Code, and the Python extension are all working as expected by creating a simple demo project in a folder of your choosing.</p>
 <p>In the VS Code <code>File</code> menu, select Open Folder (or if you prefer to learn Keyboard Shortcuts, press <code>Control + K</code> followed by <code>Control + O</code>, you can even keep the Control key held down between both of them if you&rsquo;d like) and select or create a folder that you want your demo project to live in.</p>
 <p>Once you select a folder, VS Code will create a workspace there. Click on the New File icon located on the left-hand side of your workspace (or, press <code>Control+Shift+P</code> and type in <code>new file</code> and hit enter) and name it <code>main.py</code>.</p>
@@ -209,7 +209,7 @@ $ sudo apt-get install python3.8
 </ul>
 </li>
 <li>Navigate to <code>File &gt; Preferences &gt; Settings</code> or press <code>Control + Comma</code> to open up your settings, and search for &ldquo;flake8&rdquo;</li>
-<li>Make sure the following checkbox is ticked: <img src="assets/flake_8.png" alt="Flake8"></li>
+<li>Make sure the following checkbox is ticked: <img src="/images/flake_8.png" alt="Flake8"></li>
 </ol>
 <p>To test that it is properly working, try creating a comment like this in your code:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Improperly formatted comment</span>
@@ -231,7 +231,7 @@ $ sudo apt-get install python3.8
 <p>Note that <code>git</code> and GitHub are two separate but [unofficially] related things. While neither one has control or ownership over the other, <code>git</code> is a tool that you install and use locally, and GitHub is a website for hosting, viewing, contributing to and managing <code>git</code> <em>repositories</em>, which are essentially project folders that are version controlled by <code>git</code>.</p>
 <p>This means that you can [and should] use <code>git</code> even if your project is not uploaded to GitHub. <code>git</code> is extremely useful even if you are the only person developing your project. It helps you be organised and stops you from making mistakes that might end up wasting a lot of your time.</p>
 <p>Let&rsquo;s try using <code>git</code> with the Demo project we made earlier. Once you&rsquo;ve installed <code>git</code>, you should be able to use it from within a terminal you create in VS Code. In your Demo folder, run the command <code>git init</code> to turn your folder into a <code>git</code> repository. You should see VS Code responding to this. Particularly, the <em>source control</em> icon should now have a little 1 next to it, indicating that 1 modification has been detected in the source of the project.</p>
-<p><img src="assets/src_control.png" alt="Source control"></p>
+<p><img src="/images/src_control.png" alt="Source control"></p>
 <p>When using <code>git</code>, you are in control of which files should be version controlled and which files can safely be ignored by git. Some files have no reason to be version controlled. For example, your personal configuration file for the RUCS24-Bot should never be version controlled, as it should contain the token [essentially the username and password] for your bot account. Because of this, we have created a file in RUCS24-Bot&rsquo;s repository called <code>.gitignore</code>, which <code>git</code> automatically detects and reads to find out which files should never be version controlled. However, this works no differently than simply remembering to never add a certain file to version control. It is simply more convenient.</p>
 <p>Let&rsquo;s tell <code>git</code> to track and version control our <code>main.py</code> file. There are two ways you can do this. The first is to use the <code>Stage Changes</code> button (a + symbol) in the VS Code source control panel, type in a &ldquo;commit message&rdquo; which describes the change you made, and then press Ctrl+Enter in the &ldquo;commit message&rdquo; box to finalise your changes. However, keep in mind that even &ldquo;finalised&rdquo; changes can be reverted because <code>git</code> version controls your files.</p>
 <p>The second way to go about this is through the command line: you can type in <code>git add main.py</code> to &ldquo;stage&rdquo; your changes, and <code>git commit -m &quot;Your commit message&quot;</code> to finalise those changes.</p>
@@ -248,7 +248,7 @@ $ sudo apt-get install python3.8
 </li>
 </ol>
 <p>You should be met with some potentially daunting instructions. These are the ones we need:</p>
-<p><img src="assets/github_instructions.png" alt="GitHub instructions"></p>
+<p><img src="/images/github_instructions.png" alt="GitHub instructions"></p>
 <p>You should be able to paste in every command listed to your terminal and face few to no problems. However, we should understand what&rsquo;s going on, even if only at the surface level.</p>
 <p><code>git remote add origin ...</code> is a command that adds a <code>git</code> &ldquo;remote&rdquo; called &ldquo;origin&rdquo;. A remote is a server, a computer other than yours that yours connects to in order to send and receive data, that hosts a git repository. <code>git</code> allows you to add remote hosts that you can send the contents of your local <code>git</code> repository to. GitHub exists primarily to be a remote host for <code>git</code> repositories, so this makes sense.</p>
 <p><code>git branch -M master</code> is a safety measure. GitHub requires that the &ldquo;main&rdquo; branch of your <code>git</code> project is called &ldquo;master&rdquo;. This command forcefully renames the current branch to master, in case you have renamed it for any reason.</p>
@@ -276,7 +276,7 @@ $ sudo apt-get install python3.8
 <p>If you want to create those folders from the command line, you can use the <code>mkdir</code> command.</p>
 <p>For example, <code>mkdir ~/Projects</code> followed by <code>mkdir ~/Projects/Python</code> on Linux or Mac, and <code>mkdir C:\Projects</code> followed by <code>mkdir C:\Projects\Python</code> on Windows.</p>
 <p>Once you have navigated to your preferred folder for storing Python projects in your terminal, navigate to your fork of the RUCS24-Bot repository and click on the green &ldquo;Code&rdquo; button and click on the clipboard that appears next to the HTTPS URL as shown here:</p>
-<p><img src="assets/clone.png" alt="Clone"></p>
+<p><img src="/images/clone.png" alt="Clone"></p>
 <p>Back in your terminal, now in the directory where you wish to store your Python projects, run the command <code>git clone &lt;repository_url&gt;</code> where <code>&lt;repository_url&gt;</code> is replaced by whatever you have copied from the GitHub repository.</p>
 <p>For me this looks like <code>git clone https://github.com/rosalogia/rucs24-bot.git</code>.</p>
 <p>Once this command finishes running, you should find that a new folder has been created inside the folder your currently in. This folder contains the code for your fork of the RUCS24-Bot, and it is yours to make changes and additions to. Make sure you open this folder up in VS Code before the next step.</p>
@@ -303,7 +303,7 @@ $ sudo apt-get install python3.8
 }
 </code></pre></div><p>We are getting closer and closer to having a fully running version of the RUCS24-Bot that you can play with and test while developing it further. There are a few more important steps.</p>
 <p>Firstly, you should create an empty Discord server of your own that you can invite your bot account to.</p>
-<p><img src="assets/server_create.png" alt="Server Create"></p>
+<p><img src="/images/server_create.png" alt="Server Create"></p>
 <p>Now we will invite the bot to the server. Return to the page on <a href="https://discord.com/developers">discord.com</a> where you created your bot. On the left-hand side, select &ldquo;General Information&rdquo; and find the section labelled &ldquo;Client ID&rdquo;.</p>
 <p>In order to invite your bot to your server, you must create a special link that incorporates its client id that looks like this:</p>
 <p><a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID_GOES_HERE&amp;scope=bot&amp;permissions=8">https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID_GOES_HERE&amp;scope=bot&amp;permissions=8</a></p>
