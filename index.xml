@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ambika Eshwar</title>
-    <link>rosalogia.me/</link>
+    <link>/</link>
     <description>Recent content on Ambika Eshwar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Sat, 05 Sep 2020 23:36:21 -0400</lastBuildDate>
     
-	<atom:link href="rosalogia.me/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Setting Up a Discord Bot Development Environment with Python</title>
-      <link>rosalogia.me/posts/rucs24-setup/</link>
+      <link>/posts/rucs24-setup/</link>
       <pubDate>Sat, 05 Sep 2020 23:36:21 -0400</pubDate>
       
-      <guid>rosalogia.me/posts/rucs24-setup/</guid>
+      <guid>/posts/rucs24-setup/</guid>
       <description>This guide was originally written to meet the particular needs of the Rutgers Computer Science - Class of 2024 Discord Bot, and has been included on this site because I personally feel that it is a generally useful and informative guide for those who have never developed outside of an academic environment, and wish to familiarise themselves with the tools and procedures of open source development.
 RUCS24-Bot is a Discord bot written in Python.</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>rosalogia.me/about/</link>
+      <link>/about/</link>
       <pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>rosalogia.me/about/</guid>
+      <guid>/about/</guid>
       <description>Hi. My name is Ambika. You can learn a little about me and what I do on this page:
  I am a student of Computer Science at Rutgers, The State University of New Jersey, minoring in Marine Sciences. I develop and contribute to open-source software projects that I make use of or that interest me. I am particularly enthusiastic about the functional programming paradigm, as well as the F# and OCaml programming languages.</description>
     </item>
