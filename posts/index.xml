@@ -18,6 +18,30 @@
             <description>The bulk of the content I plan on including in this site has to do with helping less experienced programmers in my class familiarise themselves with programming tools, practices and environments that are more common and useful outside of an academic [or, at least, undergraduate] environment. Python is a simple and powerful programming language that sees a lot of use in professional, casual and open-source spaces, and knowing it can make you more employable but can also help you make your life easier or participate in open source projects that interest you.</description>
             <content type="html"><![CDATA[<p>The bulk of the content I plan on including in this site has to do with helping less experienced programmers in my class familiarise themselves with programming tools, practices and environments that are more common and useful outside of an academic [or, at least, undergraduate] environment. Python is a simple and powerful programming language that sees a lot of use in professional, casual and open-source spaces, and knowing it can make you more employable but can also help you make your life easier or participate in open source projects that interest you.</p>
 <p>The objective of this guide is to help a student whose only exposure to programming so far was an AP Computer Science A (or equivalent, e.g. Introductory Computer Science in most universities) course, in which Java was the language of instruction, get familiar with Python and its syntax. This is not a comprehensive language guide. Instead, it includes some useful information as well as some syntax comparisons. I would appreciate comments regarding the extent to which this guide is helpful and ways in which you feel it might be improved.</p>
+<ul>
+<li><a href="#before-beginning-">Before Beginning &hellip;</a>
+<ul>
+<li><a href="#why-a-new-language-">Why a New Language?</a></li>
+</ul>
+</li>
+<li><a href="#syntax-comparisons">Syntax Comparisons</a>
+<ul>
+<li><a href="#hello-world">Hello World</a></li>
+<li><a href="#data-and-types">Data and Types</a></li>
+<li><a href="#decision-making">Decision Making</a></li>
+<li><a href="#more-complex-data-and-iteration">More Complex Data and Iteration</a>
+<ul>
+<li><a href="#built-in-data-structures">Built-In Data Structures</a></li>
+<li><a href="#note-on-functions-and-methods">Note on Functions and Methods</a></li>
+<li><a href="#custom-data-types--classes">Custom Data Types: Classes</a></li>
+</ul>
+</li>
+<li><a href="#file-io">File IO</a></li>
+</ul>
+</li>
+<li><a href="#synthesis">Synthesis</a></li>
+<li><a href="#closure">Closure</a></li>
+</ul>
 <h2 id="before-beginning-">Before Beginning &hellip;</h2>
 <p><strong>NOTE</strong>: This section includes some information I think will help beginners convince themselves that learning another programming language, particularly Python, is worth their time. If you are convinced, feel free to skip this section.</p>
 <h3 id="why-a-new-language">Why a New Language?</h3>
