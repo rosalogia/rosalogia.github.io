@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on Ambika Eshwar</title>
-    <link>/tags/python/</link>
-    <description>Recent content in python on Ambika Eshwar</description>
+    <title>beginners on Ambika Eshwar</title>
+    <link>/tags/beginners/</link>
+    <description>Recent content in beginners on Ambika Eshwar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Mon, 07 Sep 2020 02:00:50 -0400</lastBuildDate>
     
-	<atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/beginners/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       
       <guid>/posts/java-to-python/</guid>
       <description>The bulk of the content I plan on including in this site has to do with helping less experienced programmers in my class familiarise themselves with programming tools, practices and environments that are more common and useful outside of an academic [or, at least, undergraduate] environment. Python is a simple and powerful programming language that sees a lot of use in professional, casual and open-source spaces, and knowing it can make you more employable but can also help you make your life easier or participate in open source projects that interest you.</description>
-    </item>
-    
-    <item>
-      <title>Setting Up a Discord Bot Development Environment with Python</title>
-      <link>/posts/rucs24-setup/</link>
-      <pubDate>Sat, 05 Sep 2020 23:36:21 -0400</pubDate>
-      
-      <guid>/posts/rucs24-setup/</guid>
-      <description>This guide was originally written to meet the particular needs of the Rutgers Computer Science - Class of 2024 Discord Bot, and has been included on this site because I personally feel that it is a generally useful and informative guide for those who have never developed outside of an academic environment, and wish to familiarise themselves with the tools and procedures of open source development.
-RUCS24-Bot is a Discord bot written in Python.</description>
     </item>
     
   </channel>

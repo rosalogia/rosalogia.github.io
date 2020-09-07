@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 05 Sep 2020 23:36:21 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2020 02:00:50 -0400</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python for the AP CS A Student</title>
+      <link>/posts/java-to-python/</link>
+      <pubDate>Mon, 07 Sep 2020 02:00:50 -0400</pubDate>
+      
+      <guid>/posts/java-to-python/</guid>
+      <description>The bulk of the content I plan on including in this site has to do with helping less experienced programmers in my class familiarise themselves with programming tools, practices and environments that are more common and useful outside of an academic [or, at least, undergraduate] environment. Python is a simple and powerful programming language that sees a lot of use in professional, casual and open-source spaces, and knowing it can make you more employable but can also help you make your life easier or participate in open source projects that interest you.</description>
+    </item>
     
     <item>
       <title>Setting Up a Discord Bot Development Environment with Python</title>
