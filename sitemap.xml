@@ -4,7 +4,37 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-09-07T02:00:50-04:00</lastmod>
+    <lastmod>2020-09-12T17:10:35-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/configuring-saturn-to-use-postgres/</loc>
+    <lastmod>2020-09-12T17:10:35-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/fsharp/</loc>
+    <lastmod>2020-09-12T17:10:35-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2020-09-12T17:10:35-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/saturn/</loc>
+    <lastmod>2020-09-12T17:10:35-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-09-12T17:10:35-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/web-development/</loc>
+    <lastmod>2020-09-12T17:10:35-04:00</lastmod>
   </url>
   
   <url>
@@ -23,11 +53,6 @@
   </url>
   
   <url>
-    <loc>/posts/</loc>
-    <lastmod>2020-09-07T02:00:50-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/programming/</loc>
     <lastmod>2020-09-07T02:00:50-04:00</lastmod>
   </url>
@@ -39,11 +64,6 @@
   
   <url>
     <loc>/posts/java-to-python/</loc>
-    <lastmod>2020-09-07T02:00:50-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-09-07T02:00:50-04:00</lastmod>
   </url>
   

@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 07 Sep 2020 02:00:50 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2020 17:10:35 -0400</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Configuring Saturn to Use Postgres</title>
+      <link>/posts/configuring-saturn-to-use-postgres/</link>
+      <pubDate>Sat, 12 Sep 2020 17:10:35 -0400</pubDate>
+      
+      <guid>/posts/configuring-saturn-to-use-postgres/</guid>
+      <description>Saturn is a modern MVC-oriented web framework for F# built on .NET Core, making it a suitable option for cross-platform development and deployment on unix-like operating systems, which for me is a must. The F# community is really enthusiastic about a feature of the F# language and environment which they lovingly refer to as type providers. When it comes to type providers, the objective is usually to provide some kind of immediate and type-safe mapping between an external data source and your F# codebase.</description>
+    </item>
     
     <item>
       <title>Python for the AP CS A Student</title>

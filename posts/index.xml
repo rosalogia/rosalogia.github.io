@@ -6,8 +6,140 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Mon, 07 Sep 2020 02:00:50 -0400</lastBuildDate>
+        <lastBuildDate>Sat, 12 Sep 2020 17:10:35 -0400</lastBuildDate>
         <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Configuring Saturn to Use Postgres</title>
+            <link>/posts/configuring-saturn-to-use-postgres/</link>
+            <pubDate>Sat, 12 Sep 2020 17:10:35 -0400</pubDate>
+            
+            <guid>/posts/configuring-saturn-to-use-postgres/</guid>
+            <description>Saturn is a modern MVC-oriented web framework for F# built on .NET Core, making it a suitable option for cross-platform development and deployment on unix-like operating systems, which for me is a must. The F# community is really enthusiastic about a feature of the F# language and environment which they lovingly refer to as type providers. When it comes to type providers, the objective is usually to provide some kind of immediate and type-safe mapping between an external data source and your F# codebase.</description>
+            <content type="html"><![CDATA[<p><a href="https://saturnframework.org/">Saturn</a> is a modern MVC-oriented web framework for F# built
+on .NET Core, making it a suitable option for cross-platform development and deployment
+on unix-like operating systems, which for me is a must. The F# community is really
+enthusiastic about a feature of the F# language and environment which they lovingly
+refer to as <a href="https://docs.microsoft.com/en-us/dotnet/fsharp/tutorials/type-providers/">type providers</a>.
+When it comes to type providers, the objective is usually to provide some kind of immediate
+and type-safe mapping between an external data source and your F# codebase. This is immensely
+convenient since in F#, as with any functional language, types are a major source of developer power.
+Being able to generate types from structured external data for use within your F# code removes
+a lot of the hassle and worry that might otherwise accompany any effort to access external data.</p>
+<p>However, being a .NET language, for a long while much of the documentation and guidance online
+for F# was oriented toward Windows and Visual Studio users. Although they were appealing, I had
+a difficult time trying to make use of the SQL providers on Linux, and for a long while this turned me
+away from attempting any web development in F#. Although I&rsquo;m sure the situation has improved on that
+front, I decided to see how easy it would be to use PostgreSQL on Linux with Saturn compared to my
+attempt to use it with <a href="https://suave.io/">Suave</a> in 2017. It didn&rsquo;t take very long, but for future
+reference (for myself) I&rsquo;ve decided to lay out the process here.</p>
+<h2 id="setting-up-a-saturn-project">Setting up a Saturn Project</h2>
+<p>Saturn provides really convenient tooling for setting up your project. If you already have
+.NET Core 3.1 installed, you can execute the following in a directory of your choice to get
+a working project put together for you:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">dotnet new -i Saturn.Template
+mkdir SaturnSample <span style="color:#f92672">&amp;&amp;</span> cd SaturnSample
+dotnet new saturn -lang F#
+dotnet tool restore
+dotnet saturn gen Book Books id:string title:string author:string
+</code></pre></div><p>Open the file <code>…/SaturnSample/src/SaturnSample/Router.fs</code> and add the specified line:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#75715e">// This is the part of the file you&#39;re editing
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> browserRouter <span style="color:#f92672">=</span> router <span style="color:#f92672">{</span>
+  not_found_handler <span style="color:#f92672">(</span>htmlView NotFound.layout<span style="color:#f92672">)</span>
+  pipe_through browser
+
+  forward <span style="color:#e6db74">&#34;&#34;</span> defaultView
+  <span style="color:#75715e">// This is the line you&#39;re adding
+</span><span style="color:#75715e"></span>  forward <span style="color:#e6db74">&#34;/books&#34;</span> Books.Controller.resource
+<span style="color:#f92672">}</span>
+</code></pre></div><p>These instructions are taken directly from the <a href="https://saturnframework.org/tutorials/how-to-start.html">How to Start</a>
+guide provided in the Saturn documentation, and if you&rsquo;d like further information about what they do you should check
+them out there. I excluded the migration and build steps, but that&rsquo;s because I want to change the project to
+use PostgreSQL before we migrate and build. Know, however, that if you&rsquo;ve already migrated and built your project for
+SQLite, the rest of this guide can still be followed exactly without any problems. Simple.Migrations will run the migration
+again for PostgreSQL once you make the necessary changes.</p>
+<h2 id="setting-up-a-postgresql-database-with-docker">Setting up a PostgreSQL Database with Docker</h2>
+<p>Although it&rsquo;s not at all necessary that you use Docker for this, I prefer containerising my databases
+especially for scrap projects like this. If you&rsquo;d like to set up a local bare-metal installation of
+PostgreSQL, you are free to do so.</p>
+<p>With Docker installed and the Docker service enabled, run the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run --name your-container-name -e POSTGRES_PASSWORD<span style="color:#f92672">=</span>your_password -p 5432:5432 -d postgres
+</code></pre></div><p>This will create a <code>-d</code>etached container named <code>your-container-name</code> with an environment variable <code>POSTGRES_PASSWORD</code> set
+to <code>your_password</code>, mapping your local port <code>5432</code> to port <code>5432</code> in the container, and finally it will run <code>postgres</code>
+within the container. If you want to be sure that it works, you can try connecting to it locally (if you have PostgreSQL
+and subsequently <code>psql</code> installed):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">psql -h localhost -p <span style="color:#ae81ff">5432</span> postgres -U postgres -W <span style="color:#75715e"># You will be prompted for a password</span>
+</code></pre></div><p>You should be met with the standard PostgreSQL prompt, connected to the database <code>postgres</code>, which you can quit with <code>\q</code>.</p>
+<h2 id="adjusting-your-saturn-project-to-use-npgsql">Adjusting Your Saturn Project to Use Npgsql</h2>
+<p>Before we adjust the code that sets up the database connection, we should add Npgsql as a dependency in our project.
+The files we need to modify are the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">…/SaturnSample/paket.dependencies
+…/SaturnSample/paket.lock
+…/SaturnSample/src/Migrations/paket.references
+…/SaturnSample/src/SaturnSample/paket.references
+</code></pre></div><p>To learn more about the different Paket files, what their unique purposes are and how they work together, you
+can read about it <a href="https://fsprojects.github.io/Paket/">here</a>.</p>
+<p>In <code>…/SaturnSample/paket.dependencies</code>, find the line where <code>Microsoft.Data.Sqlite</code> is listed (the entire line should
+read <code>nuget Microsoft.Data.Sqlite</code>) and right above or below it, add the following line:</p>
+<pre><code>nuget Npgsql
+</code></pre><p>In <code>…/SaturnSample/paket.lock</code>, beneath the line that reads <code>remote: https://api.nuget.org/v3/index.json</code>,
+include the following line with the version of Npgsql you want to use. I&rsquo;m using the <a href="https://www.nuget.org/packages/Npgsql/">latest</a>
+as of September 12th 2020:</p>
+<pre><code>Npgsql (4.1.4)
+</code></pre><p>In <code>…/SaturnSample/src/Migrations/paket.references</code> and <code>…/SaturnSample/src/SaturnSample/paket.references</code>, simply
+add a line:</p>
+<pre><code>Npgsql
+</code></pre><p>You can include it above or beneath <code>Microsoft.Data.Sqlite</code>.</p>
+<p>In the root directory of your project, run <code>dotnet restore</code> to install <code>Npgsql</code>.</p>
+<h2 id="adjusting-the-migrations-code">Adjusting the Migrations Code</h2>
+<p>Thankfully for us, we don&rsquo;t need to change much at all to make our project, by default configured for SQLite,
+fully compatible with a PostgreSQL database.</p>
+<p>Open up <code>…/SaturnSample/src/Migrations/Program.fs</code>. You should see the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">module</span> Program
+
+<span style="color:#66d9ef">open</span> System.Reflection
+<span style="color:#66d9ef">open</span> SimpleMigrations
+<span style="color:#66d9ef">open</span> Microsoft.Data.Sqlite
+<span style="color:#66d9ef">open</span> SimpleMigrations.DatabaseProvider
+<span style="color:#66d9ef">open</span> SimpleMigrations.Console
+
+
+<span style="color:#f92672">[&lt;</span>EntryPoint<span style="color:#f92672">&gt;]</span>
+<span style="color:#66d9ef">let</span> main argv <span style="color:#f92672">=</span>
+    <span style="color:#66d9ef">let</span> assembly <span style="color:#f92672">=</span> Assembly.GetExecutingAssembly()
+    <span style="color:#66d9ef">use</span> db <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SqliteConnection <span style="color:#e6db74">&#34;DataSource=src/SaturnSample/database.sqlite&#34;</span>
+    <span style="color:#66d9ef">let</span> provider <span style="color:#f92672">=</span> SqliteDatabaseProvider<span style="color:#f92672">(</span>db<span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">let</span> migrator <span style="color:#f92672">=</span> SimpleMigrator<span style="color:#f92672">(</span>assembly<span style="color:#f92672">,</span> provider<span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">let</span> consoleRunner <span style="color:#f92672">=</span> ConsoleRunner<span style="color:#f92672">(</span>migrator<span style="color:#f92672">)</span>
+    consoleRunner<span style="color:#f92672">.</span>Run<span style="color:#f92672">(</span>argv<span style="color:#f92672">)</span> <span style="color:#f92672">|&gt;</span> ignore
+    0
+</code></pre></div><p>The only SQLite specific parts of this code are the following lines:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">use</span> db <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SqliteConnection <span style="color:#e6db74">&#34;DataSource=src/SaturnSample/database.sqlite&#34;</span>
+<span style="color:#66d9ef">let</span> provider <span style="color:#f92672">=</span> SqliteDatabaseProvider<span style="color:#f92672">(</span>db<span style="color:#f92672">)</span>
+</code></pre></div><p>Changing this is simple. Make sure you <code>open Npgsql</code> underneath or below <code>open Microsoft.Data.Sqlite</code>.
+Once you&rsquo;ve done that, go ahead and make the following changes:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#75715e">// Change use db = new SqliteConnection &#34;...&#34; to
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">use</span> db <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> NpgsqlConnection <span style="color:#e6db74">&#34;Host=localhost;Username=postgres;Password=your_password;Database=postgres&#34;</span>
+<span style="color:#75715e">// Change let provider = SqliteDatabaseProvider(db) to
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> provider <span style="color:#f92672">=</span> PostgresqlDatabaseProvider<span style="color:#f92672">(</span>db<span style="color:#f92672">)</span>
+</code></pre></div><p>One last change before we migrate and build our project: in <code>…/SaturnSample/src/SaturnSample/Program.fs</code>,
+change the following line:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#75715e">// Change use_config (fun _ -&gt; {connectionString = &#34;DataSource=src/SaturnSample/database.sqlite&#34;} ) to
+</span><span style="color:#75715e"></span>use_config <span style="color:#f92672">(</span><span style="color:#66d9ef">fun</span> <span style="color:#f92672">_</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>connectionString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Host=localhost;Username=postgres;Password=your_password;Database=postgres&#34;</span><span style="color:#f92672">}</span> <span style="color:#f92672">)</span>
+</code></pre></div><p>This is not exactly necessary, as development time configuration has not fully been implemented to my knowledge, but if it
+will be implemented in the near future, it&rsquo;s not a bad idea to have be prepared to take advantage of it.</p>
+<p>Simple.Migrations only needs an initialised DatabaseProvider to work with, so all we had to do was make sure we created
+and passed a PostgresqlDatabaseProvider instead of a SqliteDatabaseProvider, which we can do easily with Npgsql.</p>
+<h1 id="migrating-and-building">Migrating and Building</h1>
+<p>This is the easiest step. The following commands should successfully create a table for the <code>Book</code> model we generated
+earlier, and then build and run your application:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">dotnet saturn migration
+dotnet fake build -t run
+</code></pre></div><p>Once the project finishes building and running, you should be able to interact with the part you added at
+<a href="https://localhost:8085/books">https://localhost:8085/books</a>.</p>
+<p>Enjoy developing full-stack F# web applications on Linux with <a href="https://saturnframework.org">Saturn</a>!</p>
+]]></content>
+        </item>
         
         <item>
             <title>Python for the AP CS A Student</title>
