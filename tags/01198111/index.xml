@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>01:198:111 on Ambika Eshwar</title>
+    <link>/tags/01198111/</link>
+    <description>Recent content in 01:198:111 on Ambika Eshwar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 26 Sep 2020 22:08:36 -0400</lastBuildDate><atom:link href="/tags/01198111/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solving the Barcode Problem</title>
+      <link>/posts/solving-the-barcode-problem/</link>
+      <pubDate>Sat, 26 Sep 2020 22:08:36 -0400</pubDate>
+      
+      <guid>/posts/solving-the-barcode-problem/</guid>
+      <description>The first assignment of Rutgers University&amp;rsquo;s Introduction to Computer Science course (01:198:111) this fall included a barcode checksumming problem whose constraints made it a little confusing even for experienced programmers. The problem is referenced in the third weekly homework assignment, and some of us are still struggling to understand how to approach it. I&amp;rsquo;m going to go over a few of the techniques we can employ to solve the problem in a clean and efficient way without exposing a full-code solution, as this would be against the collaboration policy.</description>
+    </item>
+    
+  </channel>
+</rss>
