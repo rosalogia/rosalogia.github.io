@@ -308,30 +308,8 @@ dotnet fake build -t run
             <description>The bulk of the content I plan on including in this site has to do with helping less experienced programmers in my class familiarise themselves with programming tools, practices and environments that are more common and useful outside of an academic [or, at least, undergraduate] environment. Python is a simple and powerful programming language that sees a lot of use in professional, casual and open-source spaces, and knowing it can make you more employable but can also help you make your life easier or participate in open source projects that interest you.</description>
             <content type="html"><![CDATA[<p>The bulk of the content I plan on including in this site has to do with helping less experienced programmers in my class familiarise themselves with programming tools, practices and environments that are more common and useful outside of an academic [or, at least, undergraduate] environment. Python is a simple and powerful programming language that sees a lot of use in professional, casual and open-source spaces, and knowing it can make you more employable but can also help you make your life easier or participate in open source projects that interest you.</p>
 <p>The objective of this guide is to help a student whose only exposure to programming so far was an AP Computer Science A (or equivalent, e.g. Introductory Computer Science in most universities) course, in which Java was the language of instruction, get familiar with Python and its syntax. This is not a comprehensive language guide. Instead, it includes some useful information as well as some syntax comparisons. I would appreciate comments regarding the extent to which this guide is helpful and ways in which you feel it might be improved.</p>
-<ul>
-<li><a href="#before-beginning-">Before Beginning &hellip;</a>
-<ul>
-<li><a href="#why-a-new-language-">Why a New Language?</a></li>
-</ul>
-</li>
-<li><a href="#syntax-comparisons">Syntax Comparisons</a>
-<ul>
-<li><a href="#hello-world">Hello World</a></li>
-<li><a href="#data-and-types">Data and Types</a></li>
-<li><a href="#decision-making">Decision Making</a></li>
-<li><a href="#more-complex-data-and-iteration">More Complex Data and Iteration</a>
-<ul>
-<li><a href="#built-in-data-structures">Built-In Data Structures</a></li>
-<li><a href="#note-on-functions-and-methods">Note on Functions and Methods</a></li>
-<li><a href="#custom-data-types--classes">Custom Data Types: Classes</a></li>
-</ul>
-</li>
-<li><a href="#file-io">File IO</a></li>
-</ul>
-</li>
-<li><a href="#synthesis">Synthesis</a></li>
-<li><a href="#closure">Closure</a></li>
-</ul>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h2 id="before-beginning-">Before Beginning &hellip;</h2>
 <p><strong>NOTE</strong>: This section includes some information I think will help beginners convince themselves that learning another programming language, particularly Python, is worth their time. If you are convinced, feel free to skip this section.</p>
 <h3 id="why-a-new-language">Why a New Language?</h3>
@@ -789,13 +767,8 @@ an academic environment, and wish to familiarise themselves with the tools and p
 </ul>
 <p>In this <strong>comprehensive</strong> guide we&rsquo;re going to describe the steps you&rsquo;ll need to take to set up all of these things and begin contributing to our bot.</p>
 <p>Note that this guide is in fact <strong>comprehensive</strong>, more so than any seasoned programmer will need it to be. That is because it is for beginners who have only ever programmed in personal or academic environments. If you already feel comfortable with one of the tools listed above, feel free to use the following table to skip to whichever ones are still relatively new to you.</p>
-<h4 id="table-of-contents">Table of Contents</h4>
-<ul>
-<li><a href="#installing-python">Installing Python</a></li>
-<li><a href="#text-editor">Text Editor</a></li>
-<li><a href="#installing-and-using-git">Installing and Using Git</a></li>
-<li><a href="#Setting-Up-a-Testing-Environment-for-RUCS24-Bot">Setting Up a Testing Environment for RUCS24-Bot</a></li>
-</ul>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h2 id="installing-python">Installing Python</h2>
 <p>Python is an interpreted programming language, so we need to install the Python interpreter, as well as the set of tools it usually comes packaged with. Unless you&rsquo;re on a popular distribution of Linux, you should find, download and install Python 3.8.5 or newer from <a href="https://www.python.org/downloads/">this webpage</a>. When running the installer, make sure you select the option to add Python to your PATH. This is crucial for running your Discord bot. If you fail to perform this step, you can always <a href="https://datatofish.com/add-python-to-windows-path/">fix it</a> later, so don&rsquo;t get anxious.</p>
 <p>If you&rsquo;re running a popular distribution of Linux, particularly one that isn&rsquo;t commonly used for LTS servers like CentOS, it is unlikely that you will need to install Python through the Python website. Instead, you probably can and <em>should</em> install Python through your distribution&rsquo;s package manager. Here are some instructions for some popular Linux distributions</p>
