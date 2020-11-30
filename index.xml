@@ -9,6 +9,16 @@
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Sat, 26 Sep 2020 22:08:36 -0400</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Apps</title>
+      <link>/apps/</link>
+      <pubDate>Sun, 29 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/apps/</guid>
+      <description>This page contains links to some of the small applications I&amp;rsquo;ve built that are demonstrated on this site. Projects that don&amp;rsquo;t have web front-ends only exist on my GitHub account.
+ReqCheck ReqCheck is an application for Rutgers Computer Science and Math students to find out which courses they&amp;rsquo;re eligible to take in coming semesters by inputting the courses they&amp;rsquo;ve taken (or will have taken by a certain point) so far.</description>
+    </item>
+    
+    <item>
       <title>Solving the Barcode Problem</title>
       <link>/posts/solving-the-barcode-problem/</link>
       <pubDate>Sat, 26 Sep 2020 22:08:36 -0400</pubDate>

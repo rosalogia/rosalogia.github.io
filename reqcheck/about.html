@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>ReqCheck - About</title>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper" style="background-color:#252627;">
+                <a href="/reqcheck/" class="brand-logo center">ReqCheck</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/reqcheck/about.html">About</a></li>
+                    <li><a href="https://github.com/rosalogia/ReqCheck">GitHub</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="container" class="container white-text">
+            <div class="row">
+                <div class="section">
+                    <h4>How to Use ReqCheck</h4>
+                    ReqCheck takes in a list of computer science and math courses you've taken at Rutgers and returns a list of Computer Science courses
+                    you're now eligible to enroll in based on your inputs.<br><br>In order to use the application, begin typing in the name or course-code of
+                    each CS or math course you have taken at RU and notice that you'll get automated suggestions as you type. Click on the suggestion
+                    matching the name and course-code of the course you're typing in, then continue to the next one. Once you've entered all the
+                    relevant courses you've taken, hit submit to see a list of CS courses you can now take.
+                    <br><br>
+                    If you are here to test out the application but don't go to Rutgers, you can try the following set of inputs:
+
+                    <ul>
+                        <li>01:198:111 - Introduction to Computer Science</li>
+                        <li>01:640:151 - Calculus I for the Mathematical and Physical Sciences</li>
+                        <li>01:640:152 - Calculus II for the Mathematical and Physical Sciences</li>
+                        <li>01:198:112 - Data Structures</li>
+                        <li>01:198:211 - Computer Architecture</li>
+                        <li>01:198:205 - Introduction to Discrete Structures I</li>
+                    </ul>
+
+                    This set of inputs will result in a handful of interesting electives appearing in the list below.
+                </div>
+                <div class="divider"></div>
+                <div class="section">
+                    <h4>About ReqCheck</h4>
+                    ReqCheck was developed primarily as a web API in OCaml using <a href="https://github.com/rgrinberg/opium">opium</a>.
+                    OCaml is a statically typed functional programming language that sees wide use in both academic as well as professional
+                    contexts. The program consists of two significant parts:
+                    <ul class="browser-default">
+                        <li>A parser back-end that reads in pre-requisite information for courses and builds a sort of boolean AST which is used
+                            to compute which courses are available to a student who has taken a particular set of courses.</li>
+                        <li>An opium "front-end" which is really just a HTTP API that defines two GET endpoints: /all which returns all the courses
+                            in the Rutgers' CS department along with their pre-requisites, and /allowed which takes a list of courses the student
+                            has completed as a query parameter and returns a JSON list of courses the student is eligible to take.</li>
+                    </ul>
+
+                    The parser for ReqCheck was built using the <a href="https://github.com/inhabitedtype/angstrom">Angstrom</a> parser-combinator
+                    library for OCaml. Parser-combinators provide a beautiful, functional, monadic interface for parsing that makes implementing
+                    parsers for complex grammars relatively trivial, as well as enjoyable.
+
+                    ReqCheck took about 5 days in total to develop. OCaml itself is quick and enjoyable to work in, though I often found that a lack
+                    of documentation or answered questions regarding issues with external dependencies on the internet was slowing me down. Dune, the
+                    OCaml build tool, could potentially benefit from a good and thorough tutorial that walks the user through setting up an entire
+                    project. Angstrom could use hosted documentation as well as more built-in parser-combinators. I feel that much could be added to
+                    Angstrom by looking to Parsec and FParsec (parser-combinators for Haskell and F# respectively) for inspiration and examples. Angstrom
+                    could also benefit from a nice tutorial.
+                </div>
+            </div>
+        </div>
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="js/materialize.min.js"></script>
+        <script src="js/reqcheck.js"></script>
+    </body>
+</html>
