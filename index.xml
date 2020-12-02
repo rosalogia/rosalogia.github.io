@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 26 Sep 2020 22:08:36 -0400</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Dec 2020 05:09:00 -0500</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Parsing Programming Languages with FParsec</title>
+      <link>/posts/functional-parsing/</link>
+      <pubDate>Wed, 02 Dec 2020 05:09:00 -0500</pubDate>
+      
+      <guid>/posts/functional-parsing/</guid>
+      <description>Over the past few months, after learning about parser combinators in Joachim Breitner&amp;rsquo;s Haskell course, I&amp;rsquo;ve found myself needing or wanting to approach a problem by writing a parser more often than I had ever expected to. Each time, I&amp;rsquo;m amazed and satisfied by the simplicity and declarativity of parser-combinators. Not only does the functional pattern of combinator functions result in clean and readable code (except for mystical operators here and there), I find that it also makes solving problems much more interesting and much less repetitive.</description>
+    </item>
+    
     <item>
       <title>Apps</title>
       <link>/apps/</link>

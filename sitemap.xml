@@ -3,22 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/</loc>
+    <lastmod>2020-12-02T05:09:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/dotnet/</loc>
+    <lastmod>2020-12-02T05:09:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/fparsec/</loc>
+    <lastmod>2020-12-02T05:09:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/fsharp/</loc>
+    <lastmod>2020-12-02T05:09:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/functional-programming/</loc>
+    <lastmod>2020-12-02T05:09:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/functional-parsing/</loc>
+    <lastmod>2020-12-02T05:09:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2020-12-02T05:09:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-12-02T05:09:00-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/apps/</loc>
     <lastmod>2020-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/01198111/</loc>
-    <lastmod>2020-09-26T22:08:36-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-09-26T22:08:36-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
     <lastmod>2020-09-26T22:08:36-04:00</lastmod>
   </url>
   
@@ -33,22 +63,12 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-09-26T22:08:36-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/resources/</loc>
     <lastmod>2020-09-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/posts/configuring-saturn-to-use-postgres/</loc>
-    <lastmod>2020-09-12T17:10:35-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/fsharp/</loc>
     <lastmod>2020-09-12T17:10:35-04:00</lastmod>
   </url>
   
