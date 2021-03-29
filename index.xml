@@ -42,8 +42,8 @@ ReqCheck ReqCheck is an application for Rutgers Computer Science and Math studen
       <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>/resources/</guid>
-      <description>This page is a growing compilation of free resources for learning to use various technologies, tools, and skills that I find interesting, fun, productive or essential. Most if not all of them are those which I&amp;rsquo;ve used myself. They are listed in order of relative complexity to a new programmer.
-Pre-Programming There are some things that you might want to know about, learn about, set up, and/or install before beginning to program.</description>
+      <description>This page is a growing compilation of free resources for learning to use various technologies, tools, and skills that I find interesting, fun, productive or essential. Most if not all of them are those which I&amp;rsquo;ve used myself. I attempt to list them in order of relative complexity to a new programmer.
+Note: arguably the most important thing on this page is the While Learning to Program … section. Please check it out, if nothing else.</description>
     </item>
     
     <item>
@@ -81,7 +81,7 @@ RUCS24-Bot is a Discord bot written in Python.</description>
       
       <guid>/about/</guid>
       <description>Hi. My name is Ambika. You can learn a little about me and what I do on this page:
- I am a student at Rutgers, The State University of New Jersey, majoring in Computer Science and Mathematics. I develop and contribute to open-source software projects that I make use of or that interest me. I am particularly enthusiastic about the functional programming paradigm, as well as the F# and OCaml programming languages.</description>
+ I am a student at Rutgers, The State University of New Jersey, majoring in Computer Science and Mathematics. I develop and contribute to open-source software projects that I make use of or that interest me. I am particularly enthusiastic about the functional programming paradigm, as well as the F#, OCaml, and Rust programming languages.</description>
     </item>
     
   </channel>
