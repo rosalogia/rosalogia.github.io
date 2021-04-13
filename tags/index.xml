@@ -63,29 +63,11 @@
     </item>
     
     <item>
-      <title>beginners</title>
-      <link>/tags/beginners/</link>
-      <pubDate>Mon, 07 Sep 2020 02:00:50 -0400</pubDate>
-      
-      <guid>/tags/beginners/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>java</title>
       <link>/tags/java/</link>
       <pubDate>Mon, 07 Sep 2020 02:00:50 -0400</pubDate>
       
       <guid>/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>json</title>
-      <link>/tags/json/</link>
-      <pubDate>Mon, 07 Sep 2020 02:00:50 -0400</pubDate>
-      
-      <guid>/tags/json/</guid>
       <description></description>
     </item>
     
@@ -104,15 +86,6 @@
       <pubDate>Mon, 07 Sep 2020 02:00:50 -0400</pubDate>
       
       <guid>/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tutorial</title>
-      <link>/tags/tutorial/</link>
-      <pubDate>Mon, 07 Sep 2020 02:00:50 -0400</pubDate>
-      
-      <guid>/tags/tutorial/</guid>
       <description></description>
     </item>
     
