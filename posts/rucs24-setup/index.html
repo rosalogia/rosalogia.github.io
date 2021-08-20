@@ -216,7 +216,7 @@ $ sudo apt-get install python3.8
 <p>In the VS Code <code>File</code> menu, select Open Folder (or if you prefer to learn Keyboard Shortcuts, press <code>Control + K</code> followed by <code>Control + O</code>, you can even keep the Control key held down between both of them if you&rsquo;d like) and select or create a folder that you want your demo project to live in.</p>
 <p>Once you select a folder, VS Code will create a workspace there. Click on the New File icon located on the left-hand side of your workspace (or, press <code>Control+Shift+P</code> and type in <code>new file</code> and hit enter) and name it <code>main.py</code>.</p>
 <p>The file you created should open up on the right-hand side of your workspace. Begin typing in some code, like &hellip;</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Hello&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#34;Hello&#34;</span>)
 </code></pre></div><p>If everything is going well, you should see the editor begin to suggest (or &ldquo;auto-complete&rdquo;) common or predicted completions for the code you&rsquo;re in the process of typing out. This feature is incredibly useful, and if you haven&rsquo;t already been taking advantage of it, you should definitely get comfortable with it.</p>
 <p>Once you have saved your <code>main.py</code> file, create a terminal within VS Code by clicking on the <code>Terminal</code> menu at the top of the window and selecting <code>New Terminal</code> or with the keyboard shortcut Control+Shift+`.</p>
 <p>In the terminal, type in <code>python main.py</code> to run the program. If this does not work, try variations like <code>python3 main.py</code>, <code>py main.py</code> or <code>python38 main.py</code>, as different operating systems may refer to the Python 3.8.5 interpreter differently. If this doesn&rsquo;t work, it may be the case that Python was not successfully added to your PATH. Check the instructions linked above to resolve this issue.</p>
@@ -235,7 +235,7 @@ $ sudo apt-get install python3.8
 <li>Make sure the following checkbox is ticked: <img src="/images/flake_8.png" alt="Flake8"></li>
 </ol>
 <p>To test that it is properly working, try creating a comment like this in your code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Improperly formatted comment</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Improperly formatted comment</span>
 </code></pre></div><p>Then save your file. You should see a squiggle appear under your comment, and hovering over it should display a window describing the problem.</p>
 <h3 id="note-on-privacy-and-visual-studio-codium">Note on Privacy and Visual Studio Codium</h3>
 <p>Visual Studio Code is an open source text editor developed by Microsoft, however it is commonly known and acknowledged that the version of VS Code that is distributed on the link above includes software that collects and tracks information about your computer usage and sends it to Microsoft for analysis. This is known as &ldquo;telemetry.&rdquo; Some users are, rightfully, uncomfortable with this and are unwilling to use a text editor that violates your privacy to the degree that VS Code does.</p>
@@ -321,7 +321,7 @@ $ sudo apt-get install python3.8
 </li>
 </ol>
 <p>Now that you have the bot&rsquo;s token copied, you have to create a <code>config.json</code> file that RUCS24-Bot can look into in order to find the bot&rsquo;s token and log in with it. Create a new file in the project folder with VS Code called <code>config.json</code> that looks like this</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
 	<span style="color:#f92672">&#34;botToken&#34;</span> : <span style="color:#e6db74">&#34;PASTE_YOUR_TOKEN_BETWEEN_QUOTES_HERE&#34;</span>
 }
 </code></pre></div><p>We are getting closer and closer to having a fully running version of the RUCS24-Bot that you can play with and test while developing it further. There are a few more important steps.</p>

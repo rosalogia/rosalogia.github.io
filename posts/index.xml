@@ -45,7 +45,7 @@ correspond to every type of thing that the source code for a program in our lang
 series of posts, we will make it our goal to be able to parse and eventually interpret an implementation of FizzBuzz
 in our language, but not much more. For this reason, we will not be concerned with parsing floating point numbers, arrays,
 etc. Integers, strings, and booleans will do.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Value</span> <span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Value</span> <span style="color:#f92672">=</span>
     <span style="color:#f92672">|</span> Int <span style="color:#66d9ef">of</span> int
     <span style="color:#f92672">|</span> Str <span style="color:#66d9ef">of</span> <span style="color:#66d9ef">string</span>
     <span style="color:#f92672">|</span> Bool <span style="color:#66d9ef">of</span> <span style="color:#66d9ef">bool</span>
@@ -60,7 +60,7 @@ languages tend to be:</p>
 </ul>
 <p>Defining values gives us a way to represent both literals and variables, but to represent operations we need a way to represent
 operators as well. Before creating an Expression type, we will define an Operator type like so:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Operator</span> <span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Operator</span> <span style="color:#f92672">=</span>
     <span style="color:#f92672">|</span> Add <span style="color:#75715e">// Arithmetic operators
 </span><span style="color:#75715e"></span>    <span style="color:#f92672">|</span> Sub
     <span style="color:#f92672">|</span> Mult
@@ -76,7 +76,7 @@ operators as well. Before creating an Expression type, we will define an Operato
 </span><span style="color:#75715e"></span>    <span style="color:#f92672">|</span> Or
     <span style="color:#f92672">|</span> Sconcat <span style="color:#75715e">// String concatenation
 </span></code></pre></div><p>And now, we can define an <code>Expr</code> type:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Expr</span> <span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Expr</span> <span style="color:#f92672">=</span>
     <span style="color:#f92672">|</span> Literal <span style="color:#66d9ef">of</span> Value
     <span style="color:#f92672">|</span> Variable <span style="color:#66d9ef">of</span> name<span style="color:#f92672">:</span><span style="color:#66d9ef">string</span>
     <span style="color:#75715e">// The Expr type is recursive, as operations
@@ -94,7 +94,7 @@ language and will only implement some of the most basic imperative constructs:</
 <p>This will make for a very simple language, but we will be able to do some fun things with it once we&rsquo;re done. We can
 represent statements by pairing them with the information they need to execute. E.g. Print requires an expression to output,
 Set (as in set equal to) requires a variable name and an expression to pair that name with, etc.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Statement</span> <span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Statement</span> <span style="color:#f92672">=</span>
     <span style="color:#f92672">|</span> Print <span style="color:#66d9ef">of</span> Expr
     <span style="color:#f92672">|</span> Set <span style="color:#66d9ef">of</span> name<span style="color:#f92672">:</span><span style="color:#66d9ef">string</span> <span style="color:#f92672">*</span> value<span style="color:#f92672">:</span>Expr
     <span style="color:#f92672">|</span> If <span style="color:#66d9ef">of</span> condition<span style="color:#f92672">:</span>Expr <span style="color:#f92672">*</span> body<span style="color:#f92672">:</span>Block <span style="color:#f92672">*</span> <span style="color:#66d9ef">else</span><span style="color:#f92672">:</span>Block option
@@ -109,7 +109,7 @@ write a program that executes certain instructions based on data that comes in t
 <p>Now that we have a meaningful way to represent parsed source code, we can begin writing parsers that output values
 of the types in our AST representation.</p>
 <p>I like to start by defining some convenient combinators which I use frequently that FParsec doesn&rsquo;t provide on its own.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pword s <span style="color:#f92672">=</span> pstring s <span style="color:#f92672">.&gt;&gt;</span> spaces
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pword s <span style="color:#f92672">=</span> pstring s <span style="color:#f92672">.&gt;&gt;</span> spaces
 
 <span style="color:#75715e">// A combinator that transforms a parser by requiring that it
 </span><span style="color:#75715e">// be wrapped in parentheses
@@ -117,7 +117,7 @@ of the types in our AST representation.</p>
 </code></pre></div><p>The <code>.&gt;&gt;</code> operator returns the result of the parser on the left and discards the result of the parser on the right.</p>
 <p>Now we can slowly begin implementing parsers for all the things in our AST, beginning with Values which may be
 integers, strings, or booleans.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pbool<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Value<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pbool<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Value<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
     pword <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">&lt;|&gt;</span> pword <span style="color:#e6db74">&#34;false&#34;</span>
     <span style="color:#f92672">|&gt;&gt;</span> <span style="color:#66d9ef">function</span>
         <span style="color:#f92672">|</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">-&gt;</span> Bool <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
@@ -141,7 +141,7 @@ parser with a variant of the <code>run</code> function defined by FParsec. Until
 the form <code>Parser&lt;Type, Unit&gt;</code>. This is done in accordance with a functional design pattern that
 <a href="https://fsharpforfunandprofit.com/posts/elevated-world/">Scott Wlaschin</a> explains more carefully on his site than I can in
 this post.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pstringliteral<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Value<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pstringliteral<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Value<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
     <span style="color:#75715e">// This line returns a list of chars, which we have to
 </span><span style="color:#75715e"></span>    <span style="color:#75715e">// turn into a string before turning into a Str Value
 </span><span style="color:#75715e"></span>    pchar <span style="color:#e6db74">&#39;\&#34;&#39;</span> <span style="color:#f92672">&gt;&gt;.</span> manyCharsTill anyChar <span style="color:#f92672">(</span>pchar <span style="color:#e6db74">&#39;\&#34;&#39;</span><span style="color:#f92672">)</span>
@@ -157,7 +157,7 @@ case you&rsquo;ll receive a tuple.</p>
 <p><code>manyCharsTill</code> takes two parsers. The former is run until the latter is eventually matched, at which point it stops.</p>
 <p>Now that we have defined parsers for the three types of values that might be represented in our AST, we want to create
 a <code>pvalue</code> parser that combines all three of them. To do this, we will use <code>choice</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pvalue<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Value<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pvalue<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Value<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
     choice <span style="color:#f92672">[</span>
         pint
         pstringliteral
@@ -167,7 +167,7 @@ a <code>pvalue</code> parser that combines all three of them. To do this, we wil
 <p>As we work on our parser, it&rsquo;s a good idea to test the parsers you build individually as you progress. The easiest way
 to do this is to create a console application that references FParsec and uses the provided <code>run</code> function on a parser
 and a string. Be aware that it returns a result type, so you can define a test function like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> test parser strInput <span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> test parser strInput <span style="color:#f92672">=</span>
     <span style="color:#66d9ef">match</span> run parser strInput <span style="color:#66d9ef">with</span>
     <span style="color:#75715e">// Assuming your parser returns something
 </span><span style="color:#75715e"></span>    <span style="color:#75715e">// that can be printed. For our purposes,
@@ -179,7 +179,7 @@ and a string. Be aware that it returns a result type, so you can define a test f
 <p>Going in the same order in which we defined types in our AST representation, we now want to implement expression parsers
 that make use of our value parser.</p>
 <p>We can easily start by writing a parser for <code>Literal</code>s, since all they require is a <code>Value</code> which we can already parse.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pliteral<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Expr<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> pvalue <span style="color:#f92672">|&gt;&gt;</span> Literal
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pliteral<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Expr<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> pvalue <span style="color:#f92672">|&gt;&gt;</span> Literal
 </code></pre></div><p>Writing a variable parser is slightly more difficult, but the implementation is largely up to us. I have chosen to make
 valid variable names begin with letters and contain either letters or numbers. We can implement this rule using the
 <code>many1Satisfy2</code> combinator which takes two predicates and parses as many characters as possible so long as</p>
@@ -188,7 +188,7 @@ valid variable names begin with letters and contain either letters or numbers. W
 <li>The remaining chars must satisfy the second predicate</li>
 </ul>
 <p>Using this convenient combinator, we can write a variable parser that implements the rule above like so:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pvariable<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Expr<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pvariable<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Expr<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
     many1Satisfy2 <span style="color:#f92672">(</span>System.Char.IsLetter<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>System.Char.IsLetterOrDigit<span style="color:#f92672">)</span>
     <span style="color:#f92672">|&gt;&gt;</span> Variable
     .<span style="color:#f92672">&gt;&gt;</span> spaces
@@ -199,14 +199,14 @@ class. This allows us to define a parser for each &ldquo;term&rdquo; of an opera
 associativity, precedence, and how the parser should handle them, and in return get an operation parser handed to us for a given
 type. This is extremely convenient, whereas implementing operator parsing on our own would&rsquo;ve been rather difficult.</p>
 <p>Let&rsquo;s begin configuring an <code>OperatorPrecedenceParser</code> for integers, beginning by initialising one:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> intOperatorParser <span style="color:#f92672">=</span> OperatorPrecedenceParser<span style="color:#f92672">&lt;</span>Expr<span style="color:#f92672">,</span> Unit<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span>()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> intOperatorParser <span style="color:#f92672">=</span> OperatorPrecedenceParser<span style="color:#f92672">&lt;</span>Expr<span style="color:#f92672">,</span> Unit<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span>()
 </code></pre></div><p>Every OperatorPrecedenceParser has an expression parser that gets updated as we further define the OperatorPrecedenceParser by
 giving it a term parser and operators to operate on those terms. If at any point we want to parse an operation between two
 integers, we will use this parser.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> intExpr <span style="color:#f92672">=</span> intOperatorParser<span style="color:#f92672">.</span>ExpressionParser
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> intExpr <span style="color:#f92672">=</span> intOperatorParser<span style="color:#f92672">.</span>ExpressionParser
 </code></pre></div><p>We define the parser for an int &ldquo;term&rdquo;, that is, something that lies on either side of an integer operation (which may be an
 integer operation itself, which is why we refer to the intexpr parser in our term parser)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> intTerm <span style="color:#f92672">=</span> choice <span style="color:#f92672">[</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> intTerm <span style="color:#f92672">=</span> choice <span style="color:#f92672">[</span>
     pint <span style="color:#f92672">.&gt;&gt;</span> spaces <span style="color:#f92672">|&gt;&gt;</span> Literal <span style="color:#f92672">&lt;|&gt;</span> pvariable
     parens intExpr
 <span style="color:#f92672">]</span>
@@ -227,14 +227,14 @@ the function that the <code>InfixOperator</code> constructor takes, known as a m
 terms in our case. Since we are only parsing here, we will take two <code>Expr</code>s in our mapping and return an <code>Operation</code>, which
 works because <code>Operation</code>s are <code>Expr</code>s, as are variables and literals. This is, in fact, so simple that it does not need
 to change much at all between operators. We can write a simple function:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> createOperation op x y <span style="color:#f92672">=</span> Operation <span style="color:#f92672">(</span>x<span style="color:#f92672">,</span> op<span style="color:#f92672">,</span> y<span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> createOperation op x y <span style="color:#f92672">=</span> Operation <span style="color:#f92672">(</span>x<span style="color:#f92672">,</span> op<span style="color:#f92672">,</span> y<span style="color:#f92672">)</span>
 </code></pre></div><p>Which we can later partially apply to an <code>Operator</code> to define our mapping. Here is an example of how creating an <code>InfixOperator</code>
 might work:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp">
 <span style="color:#66d9ef">let</span> addition <span style="color:#f92672">=</span> InfixOperator<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;+&#34;</span><span style="color:#f92672">,</span> spaces<span style="color:#f92672">,</span> 2<span style="color:#f92672">,</span> Associativity.Left<span style="color:#f92672">,</span> createOperation Add<span style="color:#f92672">)</span>
 intOperatorParser<span style="color:#f92672">.</span>AddOperator<span style="color:#f92672">(</span>addition<span style="color:#f92672">)</span>
 </code></pre></div><p>Now, when the <code>intExpr</code> parser is applied to a string like <code>1 + 3</code>, the AST representation will look something like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp">Operation <span style="color:#f92672">(</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp">Operation <span style="color:#f92672">(</span>
     Literal <span style="color:#f92672">(</span>Int 1<span style="color:#f92672">),</span>
     Add<span style="color:#f92672">,</span>
     Literal <span style="color:#f92672">(</span>Int 3<span style="color:#f92672">)</span>
@@ -242,7 +242,7 @@ intOperatorParser<span style="color:#f92672">.</span>AddOperator<span style="col
 </code></pre></div><p>Which we can easily work with later in the interpreting phase.</p>
 <p>In order to minimise code repetition, we can employ the following pattern to quickly create and add all the operators we need
 for integers:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">OperatorDetails</span> <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>  Symbol<span style="color:#f92672">:</span> <span style="color:#66d9ef">string</span><span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">OperatorDetails</span> <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>  Symbol<span style="color:#f92672">:</span> <span style="color:#66d9ef">string</span><span style="color:#f92672">;</span>
                           Precedence<span style="color:#f92672">:</span> int<span style="color:#f92672">;</span>
                           Operator<span style="color:#f92672">:</span> Operator <span style="color:#f92672">}</span>
 
@@ -279,7 +279,7 @@ addOperators intOperatorParser intOperators
 </code></pre></div><p>We create a small table of operators for integers, then define a function that iterates over the table and adds each operator
 to its <code>OperatorPrecedenceParser</code>. This is a relatively neat way to do what becomes rather ugly otherwise. We need to do the same
 thing for strings and booleans, but they have far fewer operations defined over them, so we have slightly less to worry about.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#75715e">// Define similar structures for booleans and strings
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#75715e">// Define similar structures for booleans and strings
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> boolOperatorParser <span style="color:#f92672">=</span> OperatorPrecedenceParser<span style="color:#f92672">&lt;</span>Expr<span style="color:#f92672">,</span> Unit<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span>()
 <span style="color:#66d9ef">let</span> boolExpr <span style="color:#f92672">=</span> boolOperatorParser<span style="color:#f92672">.</span>ExpressionParser
 <span style="color:#66d9ef">let</span> boolTerm <span style="color:#f92672">=</span> choice <span style="color:#f92672">[</span>
@@ -303,7 +303,7 @@ boolOperatorParser<span style="color:#f92672">.</span>TermParser <span style="co
 <span style="color:#f92672">]</span>
 strOperatorParser<span style="color:#f92672">.</span>TermParser <span style="color:#f92672">&lt;-</span> strTerm
 </code></pre></div><p>Now we define their operator tables and add those operators with <code>List.iter</code> as we did for integers:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> boolOperators <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> boolOperators <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>
     <span style="color:#f92672">{</span>Symbol <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;and&#34;</span><span style="color:#f92672">;</span> Precedence <span style="color:#f92672">=</span> 2<span style="color:#f92672">;</span> Operator <span style="color:#f92672">=</span>  And<span style="color:#f92672">}</span>
     <span style="color:#f92672">{</span>Symbol <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;or&#34;</span><span style="color:#f92672">;</span> Precedence <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span> Operator <span style="color:#f92672">=</span> Or<span style="color:#f92672">}</span>
 <span style="color:#f92672">]</span>
@@ -315,13 +315,13 @@ strOperatorParser<span style="color:#f92672">.</span>TermParser <span style="col
 addOperators boolOperatorParser boolOperators
 addOperators strOperatorParser stringOperators
 </code></pre></div><p>Now we have a parser for every type of operation, we can define an operation parser much like we defined a value parser earlier:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> poperation <span style="color:#f92672">=</span> choice <span style="color:#f92672">[</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> poperation <span style="color:#f92672">=</span> choice <span style="color:#f92672">[</span>
     intExpr
     boolExpr
     strExpr
 <span style="color:#f92672">]</span>
 </code></pre></div><p>And now, since we have a literal parser, a variable parser, and an operation parser, we can define an expression parser:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pexpression <span style="color:#f92672">=</span> choice <span style="color:#f92672">[</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pexpression <span style="color:#f92672">=</span> choice <span style="color:#f92672">[</span>
     poperation
     pliteral
     pvariable
@@ -338,17 +338,17 @@ as recursive parsers aren&rsquo;t awfully uncommon.</p>
 the handling of recursive parsers. Of course, it&rsquo;s all abstracted rather well, so we don&rsquo;t need to worry too much about how
 it&rsquo;s implemented to make good use of it. Before we begin implementing statement parsers, we will create the <code>pstatement</code>
 parser like so:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pstatement<span style="color:#f92672">,</span> pstatementref <span style="color:#f92672">=</span> createParserForwardedToRef<span style="color:#f92672">&lt;</span>Statement<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span>()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pstatement<span style="color:#f92672">,</span> pstatementref <span style="color:#f92672">=</span> createParserForwardedToRef<span style="color:#f92672">&lt;</span>Statement<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span>()
 </code></pre></div><p>Later on, when we wish to parse a statement within a statement parser, we can use <code>pstatement</code>.</p>
 <p>Let&rsquo;s parse all our statements in order, starting with print:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pprint<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Statement<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pprint<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Statement<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
     pword <span style="color:#e6db74">&#34;print&#34;</span>
     <span style="color:#f92672">&gt;&gt;.</span> parens pexpression
     <span style="color:#f92672">|&gt;&gt;</span> Print
 </code></pre></div><p>We&rsquo;re able to use the <code>&gt;&gt;.</code> operator in conjunction with the <code>parens</code> combinator we defined earlier to parse out the expression
 within a <code>print(...)</code> statement and pass it to the <code>Print</code> constructor.</p>
 <p>Next we&rsquo;ll implement <code>Set</code> which parses variable assignment:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pset<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Statement<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pset<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Statement<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
     <span style="color:#66d9ef">let</span> identifier <span style="color:#f92672">=</span>
         many1Skip2 <span style="color:#f92672">(</span>System.Char.IsLetter<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>System.Char.IsLetterOrDigit<span style="color:#f92672">)</span>
         <span style="color:#f92672">.&gt;&gt;</span> pword <span style="color:#e6db74">&#34;=&#34;</span>
@@ -359,10 +359,10 @@ within a <code>print(...)</code> statement and pass it to the <code>Print</code>
 then make use of the <code>.&gt;&gt;.</code> operator to parse both an identifier and an expression and pass the resulting tuple to the <code>Set</code>
 constructor.</p>
 <p>Before we move on, we&rsquo;ll define a parser called <code>pblock</code> which parses blocks of code between curly braces:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pblock<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Statement <span style="color:#66d9ef">list</span><span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pblock<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Statement <span style="color:#66d9ef">list</span><span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
     between <span style="color:#f92672">(</span>pword <span style="color:#e6db74">&#34;{&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">(</span>pword <span style="color:#e6db74">&#34;}&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">(</span>many pstatement<span style="color:#f92672">)</span>
 </code></pre></div><p>Now we can define parsers for if and while:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pif<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Statement<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pif<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Statement<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
     <span style="color:#66d9ef">let</span> condition <span style="color:#f92672">=</span> pword <span style="color:#e6db74">&#34;if&#34;</span> <span style="color:#f92672">&gt;&gt;.</span> pexpression
     <span style="color:#66d9ef">let</span> inner <span style="color:#f92672">=</span> pblock
     <span style="color:#66d9ef">let</span> elseBlock <span style="color:#f92672">=</span> pword <span style="color:#e6db74">&#34;else&#34;</span> <span style="color:#f92672">&gt;&gt;.</span> pblock <span style="color:#f92672">|&gt;</span> opt
@@ -376,7 +376,7 @@ the same task as <code>.&gt;&gt;.</code> but returning a triple rather than a tu
 parsers in order, and then pipes their results to a function that takes 3 inputs. Here we use <code>pipe3</code> to pipe the condition,
 if body, and potentially existing else block to the <code>If</code> constructor.</p>
 <p>Thankfully, the while parser is much nicer:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pwhile<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Statement<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> pwhile<span style="color:#f92672">:</span> Parser<span style="color:#f92672">&lt;</span>Statement<span style="color:#f92672">,</span> Unit<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span>
     <span style="color:#66d9ef">let</span> condition <span style="color:#f92672">=</span> pword <span style="color:#e6db74">&#34;while&#34;</span> <span style="color:#f92672">&gt;&gt;.</span> pexpression
     
     condition <span style="color:#f92672">.&gt;&gt;.</span> pblock
@@ -387,7 +387,7 @@ for piping to the constructor that we used for <code>pset</code>.</p>
 <code>pstatement</code> parser that was forwarded to a reference cell. Similar to how we created the <code>pvalue</code> and <code>pexpression</code> parsers,
 we assign a <code>choice</code> of the statement parsers we&rsquo;ve written to the <code>pstatementref</code> that was created when we initialised the
 <code>pstatement</code> parser:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">do</span> pstatementref <span style="color:#f92672">:=</span> choice <span style="color:#f92672">[</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">do</span> pstatementref <span style="color:#f92672">:=</span> choice <span style="color:#f92672">[</span>
     pprint
     pif
     pwhile
@@ -397,7 +397,7 @@ we assign a <code>choice</code> of the statement parsers we&rsquo;ve written to 
 a little bit:</p>
 <blockquote>
 <p>The grammar rules for JSON lists and objects are recursive, because any list or object can contain itself any kind of JSON value. Hence, in order to write parsers for the list and object grammar rules, we need a way to refer to the parser for any kind of JSON value, even though we haven’t yet constructed this parser. Like it is so often in computing, we can solve this problem by introducing an extra indirection:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> jvalue<span style="color:#f92672">,</span> jvalueRef <span style="color:#f92672">=</span> createParserForwardedToRef<span style="color:#f92672">&lt;</span>Json<span style="color:#f92672">,</span> <span style="color:#66d9ef">unit</span><span style="color:#f92672">&gt;</span>()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> jvalue<span style="color:#f92672">,</span> jvalueRef <span style="color:#f92672">=</span> createParserForwardedToRef<span style="color:#f92672">&lt;</span>Json<span style="color:#f92672">,</span> <span style="color:#66d9ef">unit</span><span style="color:#f92672">&gt;</span>()
 </code></pre></div><p>As you might have guessed from the name, <code>createParserForwardedToRef</code> creates a parser (jvalue) that forwards all invocations to the parser in a reference cell (jvalueRef). Initially, the reference cell holds a dummy parser, but since the reference cell is mutable, we can later replace the dummy parser with the actual value parser, once we have finished constructing it.</p>
 </blockquote>
 <p>You can read the full tutorial <a href="https://www.quanttec.com/fparsec/tutorial.html#parsing-json">here</a>.</p>
@@ -410,12 +410,12 @@ write a testing function that will allow us to see how far we&rsquo;ve come.</p>
 want to run a parser on a file, and what we want to parse is as many statements as we can. FParsec provides a <code>runParserOnFile</code>
 function, and we have built a statement parser which we can combine with the <code>many</code> combinator to achieve the effect we&rsquo;re looking
 for:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> parseSourceFile fpath <span style="color:#f92672">=</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">let</span> parseSourceFile fpath <span style="color:#f92672">=</span>
     <span style="color:#66d9ef">match</span> runParserOnFile <span style="color:#f92672">(</span>many pstatement<span style="color:#f92672">)</span> () fpath System.Text.Encoding.UTF8 <span style="color:#66d9ef">with</span>
     <span style="color:#f92672">|</span> Success <span style="color:#f92672">(</span>result<span style="color:#f92672">,</span> <span style="color:#f92672">_,</span> <span style="color:#f92672">_)</span> <span style="color:#f92672">-&gt;</span> printfn <span style="color:#e6db74">&#34;%A&#34;</span> result
     <span style="color:#f92672">|</span> Failure <span style="color:#f92672">(</span>error<span style="color:#f92672">,</span> <span style="color:#f92672">_,</span> <span style="color:#f92672">_)</span> <span style="color:#f92672">-&gt;</span> printfn <span style="color:#e6db74">&#34;%s&#34;</span> error
 </code></pre></div><p>Now we need a file to test this on. As promised, a FizzBuzz implementation will do:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
 
 <span style="color:#66d9ef">while</span> i <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">100</span> {
     <span style="color:#66d9ef">if</span> i <span style="color:#f92672">%</span> <span style="color:#ae81ff">15</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
@@ -435,7 +435,7 @@ for:</p>
     i <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
 }
 </code></pre></div><p>Running your parser on this file should result in something like the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#f92672">[</span>Set <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;i&#34;</span><span style="color:#f92672">,</span> Literal <span style="color:#f92672">(</span>Int 1<span style="color:#f92672">));</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#f92672">[</span>Set <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;i&#34;</span><span style="color:#f92672">,</span> Literal <span style="color:#f92672">(</span>Int 1<span style="color:#f92672">));</span>
  While
    <span style="color:#f92672">(</span>Operation <span style="color:#f92672">(</span>Variable <span style="color:#e6db74">&#34;i&#34;</span><span style="color:#f92672">,</span> Lte<span style="color:#f92672">,</span> Literal <span style="color:#f92672">(</span>Int 100<span style="color:#f92672">)),</span>
     <span style="color:#f92672">[</span>If
@@ -502,13 +502,13 @@ reference (for myself) I&rsquo;ve decided to lay out the process here.</p>
 <p>Saturn provides really convenient tooling for setting up your project. If you already have
 .NET Core 3.1 installed, you can execute the following in a directory of your choice to get
 a working project put together for you:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">dotnet new -i Saturn.Template
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">dotnet new -i Saturn.Template
 mkdir SaturnSample <span style="color:#f92672">&amp;&amp;</span> cd SaturnSample
 dotnet new saturn -lang F#
 dotnet tool restore
 dotnet saturn gen Book Books id:string title:string author:string
 </code></pre></div><p>Open the file <code>…/SaturnSample/src/SaturnSample/Router.fs</code> and add the specified line:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#75715e">// This is the part of the file you&#39;re editing
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#75715e">// This is the part of the file you&#39;re editing
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> browserRouter <span style="color:#f92672">=</span> router <span style="color:#f92672">{</span>
   not_found_handler <span style="color:#f92672">(</span>htmlView NotFound.layout<span style="color:#f92672">)</span>
   pipe_through browser
@@ -528,17 +528,17 @@ again for PostgreSQL once you make the necessary changes.</p>
 especially for scrap projects like this. If you&rsquo;d like to set up a local bare-metal installation of
 PostgreSQL, you are free to do so.</p>
 <p>With Docker installed and the Docker service enabled, run the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run --name your-container-name -e POSTGRES_PASSWORD<span style="color:#f92672">=</span>your_password -p 5432:5432 -d postgres
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run --name your-container-name -e POSTGRES_PASSWORD<span style="color:#f92672">=</span>your_password -p 5432:5432 -d postgres
 </code></pre></div><p>This will create a <code>-d</code>etached container named <code>your-container-name</code> with an environment variable <code>POSTGRES_PASSWORD</code> set
 to <code>your_password</code>, mapping your local port <code>5432</code> to port <code>5432</code> in the container, and finally it will run <code>postgres</code>
 within the container. If you want to be sure that it works, you can try connecting to it locally (if you have PostgreSQL
 and subsequently <code>psql</code> installed):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">psql -h localhost -p <span style="color:#ae81ff">5432</span> postgres -U postgres -W <span style="color:#75715e"># You will be prompted for a password</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">psql -h localhost -p <span style="color:#ae81ff">5432</span> postgres -U postgres -W <span style="color:#75715e"># You will be prompted for a password</span>
 </code></pre></div><p>You should be met with the standard PostgreSQL prompt, connected to the database <code>postgres</code>, which you can quit with <code>\q</code>.</p>
 <h2 id="adjusting-your-saturn-project-to-use-npgsql">Adjusting Your Saturn Project to Use Npgsql</h2>
 <p>Before we adjust the code that sets up the database connection, we should add Npgsql as a dependency in our project.
 The files we need to modify are the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">…/SaturnSample/paket.dependencies
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">…/SaturnSample/paket.dependencies
 …/SaturnSample/paket.lock
 …/SaturnSample/src/Migrations/paket.references
 …/SaturnSample/src/SaturnSample/paket.references
@@ -560,7 +560,7 @@ add a line:</p>
 <p>Thankfully for us, we don&rsquo;t need to change much at all to make our project, by default configured for SQLite,
 fully compatible with a PostgreSQL database.</p>
 <p>Open up <code>…/SaturnSample/src/Migrations/Program.fs</code>. You should see the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">module</span> Program
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">module</span> Program
 
 <span style="color:#66d9ef">open</span> System.Reflection
 <span style="color:#66d9ef">open</span> SimpleMigrations
@@ -579,17 +579,17 @@ fully compatible with a PostgreSQL database.</p>
     consoleRunner<span style="color:#f92672">.</span>Run<span style="color:#f92672">(</span>argv<span style="color:#f92672">)</span> <span style="color:#f92672">|&gt;</span> ignore
     0
 </code></pre></div><p>The only SQLite specific parts of this code are the following lines:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">use</span> db <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SqliteConnection <span style="color:#e6db74">&#34;DataSource=src/SaturnSample/database.sqlite&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#66d9ef">use</span> db <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SqliteConnection <span style="color:#e6db74">&#34;DataSource=src/SaturnSample/database.sqlite&#34;</span>
 <span style="color:#66d9ef">let</span> provider <span style="color:#f92672">=</span> SqliteDatabaseProvider<span style="color:#f92672">(</span>db<span style="color:#f92672">)</span>
 </code></pre></div><p>Changing this is simple. Make sure you <code>open Npgsql</code> underneath or below <code>open Microsoft.Data.Sqlite</code>.
 Once you&rsquo;ve done that, go ahead and make the following changes:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#75715e">// Change use db = new SqliteConnection &#34;...&#34; to
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#75715e">// Change use db = new SqliteConnection &#34;...&#34; to
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">use</span> db <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> NpgsqlConnection <span style="color:#e6db74">&#34;Host=localhost;Username=postgres;Password=your_password;Database=postgres&#34;</span>
 <span style="color:#75715e">// Change let provider = SqliteDatabaseProvider(db) to
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> provider <span style="color:#f92672">=</span> PostgresqlDatabaseProvider<span style="color:#f92672">(</span>db<span style="color:#f92672">)</span>
 </code></pre></div><p>One last change before we migrate and build our project: in <code>…/SaturnSample/src/SaturnSample/Program.fs</code>,
 change the following line:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#75715e">// Change use_config (fun _ -&gt; {connectionString = &#34;DataSource=src/SaturnSample/database.sqlite&#34;} ) to
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fsharp" data-lang="fsharp"><span style="color:#75715e">// Change use_config (fun _ -&gt; {connectionString = &#34;DataSource=src/SaturnSample/database.sqlite&#34;} ) to
 </span><span style="color:#75715e"></span>use_config <span style="color:#f92672">(</span><span style="color:#66d9ef">fun</span> <span style="color:#f92672">_</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>connectionString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Host=localhost;Username=postgres;Password=your_password;Database=postgres&#34;</span><span style="color:#f92672">}</span> <span style="color:#f92672">)</span>
 </code></pre></div><p>This is not exactly necessary, as development time configuration has not fully been implemented to my knowledge, but if it
 will be implemented in the near future, it&rsquo;s not a bad idea to have be prepared to take advantage of it.</p>
@@ -598,7 +598,7 @@ and passed a PostgresqlDatabaseProvider instead of a SqliteDatabaseProvider, whi
 <h1 id="migrating-and-building">Migrating and Building</h1>
 <p>This is the easiest step. The following commands should successfully create a table for the <code>Book</code> model we generated
 earlier, and then build and run your application:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">dotnet saturn migration
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">dotnet saturn migration
 dotnet fake build -t run
 </code></pre></div><p>Once the project finishes building and running, you should be able to interact with the part you added at
 <a href="https://localhost:8085/books">https://localhost:8085/books</a>.</p>
@@ -640,9 +640,9 @@ dotnet fake build -t run
 <p>Note on environment: there is no need to install an entire development environment and tool-chain for this short tutorial. Instead you can use <a href="https://repl.it/languages/python">repl.it</a>, an online platform for writing, running, and sharing code.</p>
 <h3 id="hello-world">Hello World</h3>
 <p>The most basic Python program is shown here:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Hello World&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#34;Hello World&#34;</span>)
 </code></pre></div><p>By comparison, the most &ldquo;basic&rdquo; Java program, one which does the very same thing as this single-line Python program, is a lot longer:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello World&#34;</span><span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
@@ -650,7 +650,7 @@ dotnet fake build -t run
 </code></pre></div><p>Closer inspection of the two samples will yield more noteworthy details. For example, notice that Python does not require that you end statements in semicolons as does Java. Furthermore, there is no need in Python to create a &ldquo;Main&rdquo; class or a &ldquo;main&rdquo; method. The code that is in a Python file is run as is. Although Python is an object-oriented language, it is entirely possible to write Python code that does not make use of classes.</p>
 <h3 id="data-and-types">Data and Types</h3>
 <p>In Java you were introduced to several different data types which stored different categories of information and occasionally had to be treated differently. For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 		<span style="color:#66d9ef">int</span> anInteger <span style="color:#f92672">=</span> 2<span style="color:#f92672">;</span>
 		<span style="color:#66d9ef">double</span> decimalNumber <span style="color:#f92672">=</span> 2<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">;</span>
@@ -663,17 +663,17 @@ dotnet fake build -t run
 </span><span style="color:#75715e"></span>	<span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>Data types exist in Python, but we are under no obligation to be specific about which data type a certain variable might hold. Variables can hold any type of data at any time. This has its pros and cons, but generally it means our code is less cluttered.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">anInteger <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">anInteger <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
 decimalNumber <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.0</span>
 textInformation <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Some text&#34;</span>
-truthyInformation <span style="color:#f92672">=</span> False
+truthyInformation <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
 <span style="color:#75715e"># And as in Java, we can have them interact</span>
-combinedString <span style="color:#f92672">=</span> f<span style="color:#e6db74">&#34;The number two: {anInteger}&#34;</span> <span style="color:#75715e"># The number two: 2</span>
+combinedString <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;The number two: </span><span style="color:#e6db74">{</span>anInteger<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#75715e"># The number two: 2</span>
 isTwoTwo <span style="color:#f92672">=</span> anInteger <span style="color:#f92672">==</span> decimalNumber
 zero <span style="color:#f92672">=</span> anInteger <span style="color:#f92672">-</span> decimalNumber
 </code></pre></div><h3 id="decision-making">Decision Making</h3>
 <p>The classical construct for decision making in computer programs is the <code>if</code> statement.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 		<span style="color:#66d9ef">int</span> age <span style="color:#f92672">=</span> 18<span style="color:#f92672">;</span>
 		 
@@ -687,16 +687,16 @@ zero <span style="color:#f92672">=</span> anInteger <span style="color:#f92672">
 	<span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>A similar program in Python is just as simple:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">age <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">age <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>
 
 <span style="color:#66d9ef">if</span> age <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">21</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Still not legal.&#34;</span>)
+    print(<span style="color:#e6db74">&#34;Still not legal.&#34;</span>)
 <span style="color:#66d9ef">elif</span> age <span style="color:#f92672">==</span> <span style="color:#ae81ff">21</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Congratulations on becoming legal!&#34;</span>)
+    print(<span style="color:#e6db74">&#34;Congratulations on becoming legal!&#34;</span>)
 <span style="color:#66d9ef">else</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;You&#39;re legal!&#34;</span>)
+    print(<span style="color:#e6db74">&#34;You&#39;re legal!&#34;</span>)
 </code></pre></div><p>Programs with pre-determined input aren&rsquo;t very engaging, though. Let&rsquo;s try getting some user input from the console. In Java this is a little complicated:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.util.Scanner<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.util.Scanner<span style="color:#f92672">;</span>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -716,19 +716,19 @@ zero <span style="color:#f92672">=</span> anInteger <span style="color:#f92672">
 	<span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>By comparison, this is a lot simpler in Python:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">age <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;How old are you?&#34;</span>)) <span style="color:#75715e"># Prompt the user to enter their age, then convert the resulting string into an integer</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">age <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;How old are you?&#34;</span>)) <span style="color:#75715e"># Prompt the user to enter their age, then convert the resulting string into an integer</span>
 
 <span style="color:#66d9ef">if</span> age <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">21</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Still not legal.&#34;</span>)
+    print(<span style="color:#e6db74">&#34;Still not legal.&#34;</span>)
 <span style="color:#66d9ef">elif</span> age <span style="color:#f92672">==</span> <span style="color:#ae81ff">21</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Congratulations on becoming legal!&#34;</span>)
+    print(<span style="color:#e6db74">&#34;Congratulations on becoming legal!&#34;</span>)
 <span style="color:#66d9ef">else</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;You&#39;re legal!&#34;</span>)
+    print(<span style="color:#e6db74">&#34;You&#39;re legal!&#34;</span>)
 </code></pre></div><p>Python is designed with simplicity for convenient little command-line programs in mind, and yet it still sees heavy use in fields like data science, web development and cyber security.</p>
 <h3 id="more-complex-data-and-iteration">More Complex Data and Iteration</h3>
 <h4 id="built-in-data-structures">Built-In Data Structures</h4>
 <p>Java offered us more than primitive data types for holding single values. It gave us access to more complex types of data, like arrays, ArrayLists and HashMaps. Data types that hold other data types in a specific form or shape are called data structures. Let&rsquo;s look at how some of the native data structures in Java are used and compare that code to a Python equivalent.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 		<span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> ages <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>14<span style="color:#f92672">,</span> 18<span style="color:#f92672">,</span> 22<span style="color:#f92672">,</span> 25<span style="color:#f92672">};</span>
 		<span style="color:#75715e">// Now let&#39;s iterate over the array and print out how many people in this list are legal
@@ -751,7 +751,7 @@ zero <span style="color:#f92672">=</span> anInteger <span style="color:#f92672">
 <li>Increment the amountLegal variable if it is, don&rsquo;t do anything if it&rsquo;s not</li>
 </ol>
 <p>But the truth is that this is a lot more complex than it has to be. A Python example will demonstrate why:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">ages <span style="color:#f92672">=</span> [<span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">25</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">ages <span style="color:#f92672">=</span> [<span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">25</span>]
 
 amountLegal <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 
@@ -759,11 +759,11 @@ amountLegal <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</
     <span style="color:#66d9ef">if</span> age <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">21</span>:
         amountLegal <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span> <span style="color:#75715e"># Set amountLegal to itself + 1</span>
 
-<span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{amountLegal} of {ages.length} people legal&#34;</span>)
+print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>amountLegal<span style="color:#e6db74">}</span><span style="color:#e6db74"> of </span><span style="color:#e6db74">{</span>ages<span style="color:#f92672">.</span>length<span style="color:#e6db74">}</span><span style="color:#e6db74"> people legal&#34;</span>)
 </code></pre></div><p>The code is a lot shorter, and a lot more self explanatory in Python. If you haven&rsquo;t noticed yet, combining variable values with string literals is a lot cleaner in Python than in Java. Simply include an <code>f</code> before the string literal, and include any variables or expressions in braces to have them evaluated before the string is used anywhere.</p>
 <p>Java arrays have some limitations on them. In order to grow and shrink them whenever we want, we need to use an ArrayList. In Python, native arrays (called lists) already implement these functionalities, so we don&rsquo;t need to worry about differentiating between two different data structures that serve, essentially, the same purpose.</p>
 <p>Let&rsquo;s look at a HashMap example. If you didn&rsquo;t learn about HashMaps in school, they are a simple data structure for storing &ldquo;key-value pairs&rdquo;. All this means is that instead of &ldquo;looking up&rdquo; or accessing data in a HashMap using a numerical index as we do with arrays, we access data using a &ldquo;key&rdquo; which can be of any given type, and is specified when we create an entry in the HashMap. This is easier to understand through an example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.util.HashMap<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.util.HashMap<span style="color:#f92672">;</span>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -778,17 +778,17 @@ amountLegal <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</
 <span style="color:#f92672">}</span>
 </code></pre></div><p>HashMaps are a convenient way to store data that you might want to look up later by name, ID, etc.</p>
 <p>Python calls HashMaps &ldquo;dictionaries&rdquo; and makes them easy to work with:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">phoneBook <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">phoneBook <span style="color:#f92672">=</span> {
     <span style="color:#e6db74">&#34;Jess&#34;</span> : <span style="color:#e6db74">&#34;6091234567&#34;</span>,
     <span style="color:#e6db74">&#34;Ambika&#34;</span> : <span style="color:#e6db74">&#34;6090987654&#34;</span>
 }
 
-<span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;Ambika&#39;s phone number: {phoneBook[&#39;ambika&#39;]}&#34;</span>)
+print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Ambika&#39;s phone number: </span><span style="color:#e6db74">{</span>phoneBook[<span style="color:#e6db74">&#39;ambika&#39;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
 </code></pre></div><h4 id="note-on-functions-and-methods">Note on Functions and Methods</h4>
 <p>In Java, your classes can have self-contained snippets of functionality in them called &ldquo;methods&rdquo;. Methods exist in Python and other languages too. However, &ldquo;method&rdquo; is a term that pertains specifically to classes. The more general term for a self-contained snippet of functionality is simply &ldquo;function&rdquo;.</p>
 <p>Since in Python not everything needs to be in a class, you might find that you write more functions than methods. Meanwhile, in Java you only ever have the option to write methods.</p>
 <p>In Java our methods sometimes looked like this</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">greet</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> name<span style="color:#f92672">);</span>
 	<span style="color:#f92672">}</span>
@@ -798,12 +798,12 @@ amountLegal <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</
 	<span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>A Python equivalent, using a function instead, looks like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">greet</span>(name):
-    <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;Hello {name}&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">greet</span>(name):
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Hello </span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
 </code></pre></div><p><code>def</code> is short for &ldquo;define&rdquo; as we&rsquo;re defining a function. As previously explained, we&rsquo;re not obligated to specify the type of anything here.</p>
 <h4 id="custom-data-types-classes">Custom Data Types: Classes</h4>
 <p>Built-in data structures are fun enough to mess around with, but we also make heavy use of data types of our own creation in Java, that is to say, classes.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
 	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> age<span style="color:#f92672">;</span>
 	<span style="color:#66d9ef">private</span> ArrayList<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;</span> friends<span style="color:#f92672">;</span>
@@ -862,7 +862,7 @@ amountLegal <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</
 <span style="color:#f92672">}</span>
 </code></pre></div><p>A popular and age-old complaint about Java is the nonsensical length that custom classes reach due to the tedious nature of getters and setters, which most popular object oriented languages today have at least abstracted away if they&rsquo;re still being used in the background.</p>
 <p>Let&rsquo;s look at the above example in Python:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>:
     <span style="color:#66d9ef">def</span> __init__(self, name, age): <span style="color:#75715e"># This is the constructor</span>
         self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name
 	self<span style="color:#f92672">.</span>age <span style="color:#f92672">=</span> age
@@ -873,7 +873,7 @@ amountLegal <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</
     
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">displayFriends</span>(self): <span style="color:#75715e"># All methods accessing the properties must have self as a parameter</span>
         <span style="color:#66d9ef">for</span> friend <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>friends:
-            <span style="color:#66d9ef">print</span>(friend<span style="color:#f92672">.</span>name)
+            print(friend<span style="color:#f92672">.</span>name)
 
 ambika <span style="color:#f92672">=</span> Person(<span style="color:#e6db74">&#34;Ambika&#34;</span>, <span style="color:#ae81ff">18</span>)
 jess <span style="color:#f92672">=</span> Person(<span style="color:#e6db74">&#34;Jess&#34;</span>, <span style="color:#ae81ff">18</span>)
@@ -886,7 +886,7 @@ ambika<span style="color:#f92672">.</span>displayFriends()
 <h3 id="file-io">File IO</h3>
 <p>It&rsquo;s easier to write a useful program if the program doesn&rsquo;t lose all memory of previous user interactions every time you shut it down. Reading information from a file (<strong>I</strong>nput) and being able to store data in a file (<strong>O</strong>utput) helps us circumvent that problem.</p>
 <p>Let&rsquo;s look at a Java program that creates a file and stores some information in it if the file doesn&rsquo;t already exist, and reads from the file if it does exist.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.io.*<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.io.*<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> java.util.Scanner<span style="color:#f92672">;</span>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
@@ -914,11 +914,11 @@ ambika<span style="color:#f92672">.</span>displayFriends()
 	<span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>The program is simple enough. If a name file doesn&rsquo;t exist, it creates one, asks you for your name and then writes your name to the file. If the file does exist, it simply reads out your name from the file. This is a lot easier in Python:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> os <span style="color:#f92672">import</span> path
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> os <span style="color:#f92672">import</span> path
 
 <span style="color:#66d9ef">if</span> path<span style="color:#f92672">.</span>exists(<span style="color:#e6db74">&#34;./nameFile&#34;</span>):
     <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;./nameFile&#34;</span>, <span style="color:#e6db74">&#34;r&#34;</span>) <span style="color:#66d9ef">as</span> nameFile:
-        <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;Your name is {nameFile.read()}&#34;</span>)
+        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Your name is </span><span style="color:#e6db74">{</span>nameFile<span style="color:#f92672">.</span>read()<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
 <span style="color:#66d9ef">else</span>:
     <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;./nameFile&#34;</span>, <span style="color:#e6db74">&#34;w+&#34;</span>) <span style="color:#66d9ef">as</span> nameFile:
         name <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What&#39;s your name? &#34;</span>)
@@ -935,7 +935,7 @@ ambika<span style="color:#f92672">.</span>displayFriends()
 <p>We&rsquo;re going to use a specific type of file to store birthdays called a JSON file. JSON files essentially store HashMaps in files. This saves us the trouble of having to figure out how exactly we want to format the file we store birthdays in. We can simply create a dictionary in Python and write it directly to a JSON file. When we read the JSON file, it will come back to us as a Python dictionary.</p>
 <p>Let&rsquo;s get started.</p>
 <p>First we&rsquo;re going to want to load up the birthdays file if it exists already, and create it if it doesn&rsquo;t.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> os <span style="color:#f92672">import</span> path
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> os <span style="color:#f92672">import</span> path
 <span style="color:#f92672">import</span> json
 
 <span style="color:#66d9ef">if</span> path<span style="color:#f92672">.</span>exists(<span style="color:#e6db74">&#34;./birthdays.json&#34;</span>):
@@ -948,7 +948,7 @@ ambika<span style="color:#f92672">.</span>displayFriends()
         birthdays <span style="color:#f92672">=</span> {} <span style="color:#75715e"># Empty dictionary for now</span>
 </code></pre></div><p>As explained by the included comment, <code>json.load</code> is a function that takes a JSON file as input, reads it, and returns a dictionary based on the contents of the JSON file.</p>
 <p>Now we should create the interactive part of the program. We can create a menu system by providing numbers alongside options and having the user enter a number to express which option they&rsquo;d like to select:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">menu_1 <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;Are you ...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">1. Storing/Updating a birthday</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">2. Looking up a birthday</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">Your choice: &#34;</span>))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">menu_1 <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;Are you ...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">1. Storing/Updating a birthday</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">2. Looking up a birthday</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">Your choice: &#34;</span>))
 
 <span style="color:#66d9ef">if</span> menu_1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
     <span style="color:#f92672">...</span>
@@ -960,7 +960,7 @@ ambika<span style="color:#f92672">.</span>displayFriends()
 </ol>
 <p><code>birthdays[birthday_person] = birthday</code></p>
 <p><code>birthday_person</code> is a string and will be used as the key, and <code>birthday</code>, also a string, will be used as the value.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> menu_1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> menu_1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
     birthday_person <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Whose birthday is it? &#34;</span>)
     birthday <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;When is their birthday? (MM/DD/YYYY) &#34;</span>)
     <span style="color:#75715e"># Creating a dictionary entry where the key is their name</span>
@@ -973,7 +973,7 @@ ambika<span style="color:#f92672">.</span>displayFriends()
 <li>Check if <code>birthday_person</code> is in <code>birthdays.keys()</code>. Every dictionary in Python has a method called <code>keys()</code> that returns a list of all the keys in the dictionary, so if the person&rsquo;s name isn&rsquo;t in that list, we don&rsquo;t have their birthday stored</li>
 <li>Wait for a <code>KeyError</code> to be thrown and catch the exception it throws. If you try to look up a key in a dictionary when there&rsquo;s no entry with that key, Python will throw an exception called <code>KeyError</code>. You could always catch the exception and respond accordingly, but we&rsquo;ll be going with the first method.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">elif</span> menu_1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">elif</span> menu_1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
     menu_2 <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;Would you like to ...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">1. Look up someone&#39;s birthday</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">2. View all stored birthdays</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">Your choice: &#34;</span>))
     <span style="color:#66d9ef">if</span> menu_2 <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
         birthday_person <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Whose birthday are you looking up? &#34;</span>)
@@ -981,19 +981,19 @@ ambika<span style="color:#f92672">.</span>displayFriends()
         <span style="color:#75715e"># birthdays. The keys() method on a dictionary returns a list of</span>
         <span style="color:#75715e"># keys for that dictionary</span>
         <span style="color:#66d9ef">if</span> birthday_person <span style="color:#f92672">in</span> birthdays<span style="color:#f92672">.</span>keys(): 
-            <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{birthday_person}&#39;s birthday is on {birthdays[birthday_person]}&#34;</span>)
+            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>birthday_person<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;s birthday is on </span><span style="color:#e6db74">{</span>birthdays[birthday_person]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
         <span style="color:#66d9ef">else</span>:
-            <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{birthday_person}&#39;s birthday is not stored.&#34;</span>)
+            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>birthday_person<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;s birthday is not stored.&#34;</span>)
 </code></pre></div><p>If we want to print out all the birthdays that are currently stored, all we need to do is <code>for</code> loop over <code>birthdays.keys()</code> like so:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">elif</span> menu_2 <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;All stored birthdays are listed here:&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">elif</span> menu_2 <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
+        print(<span style="color:#e6db74">&#34;All stored birthdays are listed here:&#34;</span>)
         <span style="color:#66d9ef">for</span> birthday_person <span style="color:#f92672">in</span> birthdays<span style="color:#f92672">.</span>keys():
-            <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{birthday_person}&#39;s birthday is on {birthdays[birthday_person]}&#34;</span>)
+            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>birthday_person<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;s birthday is on </span><span style="color:#e6db74">{</span>birthdays[birthday_person]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
 </code></pre></div><p>Now all we need to do is handle invalid number entries and make sure we write any changes we&rsquo;ve made to the birthdays dictionary to the JSON file:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">else</span>:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">else</span>:
+        print(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
 <span style="color:#66d9ef">else</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
+    print(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
 
 <span style="color:#75715e"># Update the birthdays file</span>
 <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;./birthdays.json&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>) <span style="color:#66d9ef">as</span> birthday_file:
@@ -1001,7 +1001,7 @@ ambika<span style="color:#f92672">.</span>displayFriends()
     json<span style="color:#f92672">.</span>dump(birthdays, birthday_file)
 </code></pre></div><p>The <code>json.dump</code> function takes a dictionary as well as a JSON file as input, and writes the contents of the dictionary to the file.</p>
 <p>Let&rsquo;s put it all together:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> os <span style="color:#f92672">import</span> path
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> os <span style="color:#f92672">import</span> path
 <span style="color:#f92672">import</span> json
 
 <span style="color:#66d9ef">if</span> path<span style="color:#f92672">.</span>exists(<span style="color:#e6db74">&#34;./birthdays.json&#34;</span>):
@@ -1029,17 +1029,17 @@ menu_1 <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74
         <span style="color:#75715e"># birthdays. The keys() method on a dictionary returns a list of</span>
         <span style="color:#75715e"># keys for that dictionary</span>
         <span style="color:#66d9ef">if</span> birthday_person <span style="color:#f92672">in</span> birthdays<span style="color:#f92672">.</span>keys(): 
-            <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{birthday_person}&#39;s birthday is on {birthdays[birthday_person]}&#34;</span>)
+            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>birthday_person<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;s birthday is on </span><span style="color:#e6db74">{</span>birthdays[birthday_person]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
         <span style="color:#66d9ef">else</span>:
-            <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{birthday_person}&#39;s birthday is not stored.&#34;</span>)
+            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>birthday_person<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;s birthday is not stored.&#34;</span>)
     <span style="color:#66d9ef">elif</span> menu_2 <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;All stored birthdays are listed here:&#34;</span>)
+        print(<span style="color:#e6db74">&#34;All stored birthdays are listed here:&#34;</span>)
         <span style="color:#66d9ef">for</span> birthday_person <span style="color:#f92672">in</span> birthdays<span style="color:#f92672">.</span>keys():
-            <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{birthday_person}&#39;s birthday is on {birthdays[birthday_person]}&#34;</span>)
+            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>birthday_person<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;s birthday is on </span><span style="color:#e6db74">{</span>birthdays[birthday_person]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
     <span style="color:#66d9ef">else</span>:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
+        print(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
 <span style="color:#66d9ef">else</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
+    print(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
 
 <span style="color:#75715e"># Update the birthdays file</span>
 <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;./birthdays.json&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>) <span style="color:#66d9ef">as</span> birthday_file:
@@ -1100,7 +1100,7 @@ $ sudo apt-get install python3.8
 <p>In the VS Code <code>File</code> menu, select Open Folder (or if you prefer to learn Keyboard Shortcuts, press <code>Control + K</code> followed by <code>Control + O</code>, you can even keep the Control key held down between both of them if you&rsquo;d like) and select or create a folder that you want your demo project to live in.</p>
 <p>Once you select a folder, VS Code will create a workspace there. Click on the New File icon located on the left-hand side of your workspace (or, press <code>Control+Shift+P</code> and type in <code>new file</code> and hit enter) and name it <code>main.py</code>.</p>
 <p>The file you created should open up on the right-hand side of your workspace. Begin typing in some code, like &hellip;</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Hello&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#34;Hello&#34;</span>)
 </code></pre></div><p>If everything is going well, you should see the editor begin to suggest (or &ldquo;auto-complete&rdquo;) common or predicted completions for the code you&rsquo;re in the process of typing out. This feature is incredibly useful, and if you haven&rsquo;t already been taking advantage of it, you should definitely get comfortable with it.</p>
 <p>Once you have saved your <code>main.py</code> file, create a terminal within VS Code by clicking on the <code>Terminal</code> menu at the top of the window and selecting <code>New Terminal</code> or with the keyboard shortcut Control+Shift+`.</p>
 <p>In the terminal, type in <code>python main.py</code> to run the program. If this does not work, try variations like <code>python3 main.py</code>, <code>py main.py</code> or <code>python38 main.py</code>, as different operating systems may refer to the Python 3.8.5 interpreter differently. If this doesn&rsquo;t work, it may be the case that Python was not successfully added to your PATH. Check the instructions linked above to resolve this issue.</p>
@@ -1119,7 +1119,7 @@ $ sudo apt-get install python3.8
 <li>Make sure the following checkbox is ticked: <img src="/images/flake_8.png" alt="Flake8"></li>
 </ol>
 <p>To test that it is properly working, try creating a comment like this in your code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Improperly formatted comment</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Improperly formatted comment</span>
 </code></pre></div><p>Then save your file. You should see a squiggle appear under your comment, and hovering over it should display a window describing the problem.</p>
 <h3 id="note-on-privacy-and-visual-studio-codium">Note on Privacy and Visual Studio Codium</h3>
 <p>Visual Studio Code is an open source text editor developed by Microsoft, however it is commonly known and acknowledged that the version of VS Code that is distributed on the link above includes software that collects and tracks information about your computer usage and sends it to Microsoft for analysis. This is known as &ldquo;telemetry.&rdquo; Some users are, rightfully, uncomfortable with this and are unwilling to use a text editor that violates your privacy to the degree that VS Code does.</p>
@@ -1205,7 +1205,7 @@ $ sudo apt-get install python3.8
 </li>
 </ol>
 <p>Now that you have the bot&rsquo;s token copied, you have to create a <code>config.json</code> file that RUCS24-Bot can look into in order to find the bot&rsquo;s token and log in with it. Create a new file in the project folder with VS Code called <code>config.json</code> that looks like this</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
 	<span style="color:#f92672">&#34;botToken&#34;</span> : <span style="color:#e6db74">&#34;PASTE_YOUR_TOKEN_BETWEEN_QUOTES_HERE&#34;</span>
 }
 </code></pre></div><p>We are getting closer and closer to having a fully running version of the RUCS24-Bot that you can play with and test while developing it further. There are a few more important steps.</p>

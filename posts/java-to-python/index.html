@@ -35,7 +35,7 @@
 <meta itemprop="name" content="Python for Java Programmers">
 <meta itemprop="description" content="The bulk of the content I plan on including in this site has to do with helping less experienced programmers in my class familiarise themselves with programming tools, practices and environments that are more common and useful outside of an academic [or, at least, undergraduate] environment. Python is a simple and powerful programming language that sees a lot of use in professional, casual and open-source spaces, and knowing it can make you more employable but can also help you make your life easier or participate in open source projects that interest you."><meta itemprop="datePublished" content="2020-09-07T02:00:50-04:00" />
 <meta itemprop="dateModified" content="2020-09-07T02:00:50-04:00" />
-<meta itemprop="wordCount" content="4046"><meta itemprop="image" content=""/>
+<meta itemprop="wordCount" content="4044"><meta itemprop="image" content=""/>
 <meta itemprop="keywords" content="java,python,programming," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content=""/>
@@ -190,9 +190,9 @@
 <p>Note on environment: there is no need to install an entire development environment and tool-chain for this short tutorial. Instead you can use <a href="https://repl.it/languages/python">repl.it</a>, an online platform for writing, running, and sharing code.</p>
 <h3 id="hello-world">Hello World</h3>
 <p>The most basic Python program is shown here:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Hello World&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#34;Hello World&#34;</span>)
 </code></pre></div><p>By comparison, the most &ldquo;basic&rdquo; Java program, one which does the very same thing as this single-line Python program, is a lot longer:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello World&#34;</span><span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
@@ -200,7 +200,7 @@
 </code></pre></div><p>Closer inspection of the two samples will yield more noteworthy details. For example, notice that Python does not require that you end statements in semicolons as does Java. Furthermore, there is no need in Python to create a &ldquo;Main&rdquo; class or a &ldquo;main&rdquo; method. The code that is in a Python file is run as is. Although Python is an object-oriented language, it is entirely possible to write Python code that does not make use of classes.</p>
 <h3 id="data-and-types">Data and Types</h3>
 <p>In Java you were introduced to several different data types which stored different categories of information and occasionally had to be treated differently. For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 		<span style="color:#66d9ef">int</span> anInteger <span style="color:#f92672">=</span> 2<span style="color:#f92672">;</span>
 		<span style="color:#66d9ef">double</span> decimalNumber <span style="color:#f92672">=</span> 2<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">;</span>
@@ -213,17 +213,17 @@
 </span><span style="color:#75715e"></span>	<span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>Data types exist in Python, but we are under no obligation to be specific about which data type a certain variable might hold. Variables can hold any type of data at any time. This has its pros and cons, but generally it means our code is less cluttered.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">anInteger <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">anInteger <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
 decimalNumber <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.0</span>
 textInformation <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Some text&#34;</span>
-truthyInformation <span style="color:#f92672">=</span> False
+truthyInformation <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
 <span style="color:#75715e"># And as in Java, we can have them interact</span>
-combinedString <span style="color:#f92672">=</span> f<span style="color:#e6db74">&#34;The number two: {anInteger}&#34;</span> <span style="color:#75715e"># The number two: 2</span>
+combinedString <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;The number two: </span><span style="color:#e6db74">{</span>anInteger<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#75715e"># The number two: 2</span>
 isTwoTwo <span style="color:#f92672">=</span> anInteger <span style="color:#f92672">==</span> decimalNumber
 zero <span style="color:#f92672">=</span> anInteger <span style="color:#f92672">-</span> decimalNumber
 </code></pre></div><h3 id="decision-making">Decision Making</h3>
 <p>The classical construct for decision making in computer programs is the <code>if</code> statement.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 		<span style="color:#66d9ef">int</span> age <span style="color:#f92672">=</span> 18<span style="color:#f92672">;</span>
 		 
@@ -237,16 +237,16 @@ zero <span style="color:#f92672">=</span> anInteger <span style="color:#f92672">
 	<span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>A similar program in Python is just as simple:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">age <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">age <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>
 
 <span style="color:#66d9ef">if</span> age <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">21</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Still not legal.&#34;</span>)
+    print(<span style="color:#e6db74">&#34;Still not legal.&#34;</span>)
 <span style="color:#66d9ef">elif</span> age <span style="color:#f92672">==</span> <span style="color:#ae81ff">21</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Congratulations on becoming legal!&#34;</span>)
+    print(<span style="color:#e6db74">&#34;Congratulations on becoming legal!&#34;</span>)
 <span style="color:#66d9ef">else</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;You&#39;re legal!&#34;</span>)
+    print(<span style="color:#e6db74">&#34;You&#39;re legal!&#34;</span>)
 </code></pre></div><p>Programs with pre-determined input aren&rsquo;t very engaging, though. Let&rsquo;s try getting some user input from the console. In Java this is a little complicated:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.util.Scanner<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.util.Scanner<span style="color:#f92672">;</span>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -266,19 +266,19 @@ zero <span style="color:#f92672">=</span> anInteger <span style="color:#f92672">
 	<span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>By comparison, this is a lot simpler in Python:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">age <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;How old are you?&#34;</span>)) <span style="color:#75715e"># Prompt the user to enter their age, then convert the resulting string into an integer</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">age <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;How old are you?&#34;</span>)) <span style="color:#75715e"># Prompt the user to enter their age, then convert the resulting string into an integer</span>
 
 <span style="color:#66d9ef">if</span> age <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">21</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Still not legal.&#34;</span>)
+    print(<span style="color:#e6db74">&#34;Still not legal.&#34;</span>)
 <span style="color:#66d9ef">elif</span> age <span style="color:#f92672">==</span> <span style="color:#ae81ff">21</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Congratulations on becoming legal!&#34;</span>)
+    print(<span style="color:#e6db74">&#34;Congratulations on becoming legal!&#34;</span>)
 <span style="color:#66d9ef">else</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;You&#39;re legal!&#34;</span>)
+    print(<span style="color:#e6db74">&#34;You&#39;re legal!&#34;</span>)
 </code></pre></div><p>Python is designed with simplicity for convenient little command-line programs in mind, and yet it still sees heavy use in fields like data science, web development and cyber security.</p>
 <h3 id="more-complex-data-and-iteration">More Complex Data and Iteration</h3>
 <h4 id="built-in-data-structures">Built-In Data Structures</h4>
 <p>Java offered us more than primitive data types for holding single values. It gave us access to more complex types of data, like arrays, ArrayLists and HashMaps. Data types that hold other data types in a specific form or shape are called data structures. Let&rsquo;s look at how some of the native data structures in Java are used and compare that code to a Python equivalent.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 		<span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> ages <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>14<span style="color:#f92672">,</span> 18<span style="color:#f92672">,</span> 22<span style="color:#f92672">,</span> 25<span style="color:#f92672">};</span>
 		<span style="color:#75715e">// Now let&#39;s iterate over the array and print out how many people in this list are legal
@@ -301,7 +301,7 @@ zero <span style="color:#f92672">=</span> anInteger <span style="color:#f92672">
 <li>Increment the amountLegal variable if it is, don&rsquo;t do anything if it&rsquo;s not</li>
 </ol>
 <p>But the truth is that this is a lot more complex than it has to be. A Python example will demonstrate why:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">ages <span style="color:#f92672">=</span> [<span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">25</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">ages <span style="color:#f92672">=</span> [<span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">25</span>]
 
 amountLegal <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 
@@ -309,11 +309,11 @@ amountLegal <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</
     <span style="color:#66d9ef">if</span> age <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">21</span>:
         amountLegal <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span> <span style="color:#75715e"># Set amountLegal to itself + 1</span>
 
-<span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{amountLegal} of {ages.length} people legal&#34;</span>)
+print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>amountLegal<span style="color:#e6db74">}</span><span style="color:#e6db74"> of </span><span style="color:#e6db74">{</span>ages<span style="color:#f92672">.</span>length<span style="color:#e6db74">}</span><span style="color:#e6db74"> people legal&#34;</span>)
 </code></pre></div><p>The code is a lot shorter, and a lot more self explanatory in Python. If you haven&rsquo;t noticed yet, combining variable values with string literals is a lot cleaner in Python than in Java. Simply include an <code>f</code> before the string literal, and include any variables or expressions in braces to have them evaluated before the string is used anywhere.</p>
 <p>Java arrays have some limitations on them. In order to grow and shrink them whenever we want, we need to use an ArrayList. In Python, native arrays (called lists) already implement these functionalities, so we don&rsquo;t need to worry about differentiating between two different data structures that serve, essentially, the same purpose.</p>
 <p>Let&rsquo;s look at a HashMap example. If you didn&rsquo;t learn about HashMaps in school, they are a simple data structure for storing &ldquo;key-value pairs&rdquo;. All this means is that instead of &ldquo;looking up&rdquo; or accessing data in a HashMap using a numerical index as we do with arrays, we access data using a &ldquo;key&rdquo; which can be of any given type, and is specified when we create an entry in the HashMap. This is easier to understand through an example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.util.HashMap<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.util.HashMap<span style="color:#f92672">;</span>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -328,17 +328,17 @@ amountLegal <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</
 <span style="color:#f92672">}</span>
 </code></pre></div><p>HashMaps are a convenient way to store data that you might want to look up later by name, ID, etc.</p>
 <p>Python calls HashMaps &ldquo;dictionaries&rdquo; and makes them easy to work with:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">phoneBook <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">phoneBook <span style="color:#f92672">=</span> {
     <span style="color:#e6db74">&#34;Jess&#34;</span> : <span style="color:#e6db74">&#34;6091234567&#34;</span>,
     <span style="color:#e6db74">&#34;Ambika&#34;</span> : <span style="color:#e6db74">&#34;6090987654&#34;</span>
 }
 
-<span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;Ambika&#39;s phone number: {phoneBook[&#39;ambika&#39;]}&#34;</span>)
+print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Ambika&#39;s phone number: </span><span style="color:#e6db74">{</span>phoneBook[<span style="color:#e6db74">&#39;ambika&#39;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
 </code></pre></div><h4 id="note-on-functions-and-methods">Note on Functions and Methods</h4>
 <p>In Java, your classes can have self-contained snippets of functionality in them called &ldquo;methods&rdquo;. Methods exist in Python and other languages too. However, &ldquo;method&rdquo; is a term that pertains specifically to classes. The more general term for a self-contained snippet of functionality is simply &ldquo;function&rdquo;.</p>
 <p>Since in Python not everything needs to be in a class, you might find that you write more functions than methods. Meanwhile, in Java you only ever have the option to write methods.</p>
 <p>In Java our methods sometimes looked like this</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">greet</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> name<span style="color:#f92672">);</span>
 	<span style="color:#f92672">}</span>
@@ -348,12 +348,12 @@ amountLegal <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</
 	<span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>A Python equivalent, using a function instead, looks like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">greet</span>(name):
-    <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;Hello {name}&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">greet</span>(name):
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Hello </span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
 </code></pre></div><p><code>def</code> is short for &ldquo;define&rdquo; as we&rsquo;re defining a function. As previously explained, we&rsquo;re not obligated to specify the type of anything here.</p>
 <h4 id="custom-data-types-classes">Custom Data Types: Classes</h4>
 <p>Built-in data structures are fun enough to mess around with, but we also make heavy use of data types of our own creation in Java, that is to say, classes.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
 	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> age<span style="color:#f92672">;</span>
 	<span style="color:#66d9ef">private</span> ArrayList<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;</span> friends<span style="color:#f92672">;</span>
@@ -412,7 +412,7 @@ amountLegal <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</
 <span style="color:#f92672">}</span>
 </code></pre></div><p>A popular and age-old complaint about Java is the nonsensical length that custom classes reach due to the tedious nature of getters and setters, which most popular object oriented languages today have at least abstracted away if they&rsquo;re still being used in the background.</p>
 <p>Let&rsquo;s look at the above example in Python:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>:
     <span style="color:#66d9ef">def</span> __init__(self, name, age): <span style="color:#75715e"># This is the constructor</span>
         self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name
 	self<span style="color:#f92672">.</span>age <span style="color:#f92672">=</span> age
@@ -423,7 +423,7 @@ amountLegal <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</
     
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">displayFriends</span>(self): <span style="color:#75715e"># All methods accessing the properties must have self as a parameter</span>
         <span style="color:#66d9ef">for</span> friend <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>friends:
-            <span style="color:#66d9ef">print</span>(friend<span style="color:#f92672">.</span>name)
+            print(friend<span style="color:#f92672">.</span>name)
 
 ambika <span style="color:#f92672">=</span> Person(<span style="color:#e6db74">&#34;Ambika&#34;</span>, <span style="color:#ae81ff">18</span>)
 jess <span style="color:#f92672">=</span> Person(<span style="color:#e6db74">&#34;Jess&#34;</span>, <span style="color:#ae81ff">18</span>)
@@ -436,7 +436,7 @@ ambika<span style="color:#f92672">.</span>displayFriends()
 <h3 id="file-io">File IO</h3>
 <p>It&rsquo;s easier to write a useful program if the program doesn&rsquo;t lose all memory of previous user interactions every time you shut it down. Reading information from a file (<strong>I</strong>nput) and being able to store data in a file (<strong>O</strong>utput) helps us circumvent that problem.</p>
 <p>Let&rsquo;s look at a Java program that creates a file and stores some information in it if the file doesn&rsquo;t already exist, and reads from the file if it does exist.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.io.*<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.io.*<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> java.util.Scanner<span style="color:#f92672">;</span>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
@@ -464,11 +464,11 @@ ambika<span style="color:#f92672">.</span>displayFriends()
 	<span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>The program is simple enough. If a name file doesn&rsquo;t exist, it creates one, asks you for your name and then writes your name to the file. If the file does exist, it simply reads out your name from the file. This is a lot easier in Python:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> os <span style="color:#f92672">import</span> path
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> os <span style="color:#f92672">import</span> path
 
 <span style="color:#66d9ef">if</span> path<span style="color:#f92672">.</span>exists(<span style="color:#e6db74">&#34;./nameFile&#34;</span>):
     <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;./nameFile&#34;</span>, <span style="color:#e6db74">&#34;r&#34;</span>) <span style="color:#66d9ef">as</span> nameFile:
-        <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;Your name is {nameFile.read()}&#34;</span>)
+        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Your name is </span><span style="color:#e6db74">{</span>nameFile<span style="color:#f92672">.</span>read()<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
 <span style="color:#66d9ef">else</span>:
     <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;./nameFile&#34;</span>, <span style="color:#e6db74">&#34;w+&#34;</span>) <span style="color:#66d9ef">as</span> nameFile:
         name <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What&#39;s your name? &#34;</span>)
@@ -485,7 +485,7 @@ ambika<span style="color:#f92672">.</span>displayFriends()
 <p>We&rsquo;re going to use a specific type of file to store birthdays called a JSON file. JSON files essentially store HashMaps in files. This saves us the trouble of having to figure out how exactly we want to format the file we store birthdays in. We can simply create a dictionary in Python and write it directly to a JSON file. When we read the JSON file, it will come back to us as a Python dictionary.</p>
 <p>Let&rsquo;s get started.</p>
 <p>First we&rsquo;re going to want to load up the birthdays file if it exists already, and create it if it doesn&rsquo;t.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> os <span style="color:#f92672">import</span> path
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> os <span style="color:#f92672">import</span> path
 <span style="color:#f92672">import</span> json
 
 <span style="color:#66d9ef">if</span> path<span style="color:#f92672">.</span>exists(<span style="color:#e6db74">&#34;./birthdays.json&#34;</span>):
@@ -498,7 +498,7 @@ ambika<span style="color:#f92672">.</span>displayFriends()
         birthdays <span style="color:#f92672">=</span> {} <span style="color:#75715e"># Empty dictionary for now</span>
 </code></pre></div><p>As explained by the included comment, <code>json.load</code> is a function that takes a JSON file as input, reads it, and returns a dictionary based on the contents of the JSON file.</p>
 <p>Now we should create the interactive part of the program. We can create a menu system by providing numbers alongside options and having the user enter a number to express which option they&rsquo;d like to select:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">menu_1 <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;Are you ...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">1. Storing/Updating a birthday</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">2. Looking up a birthday</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">Your choice: &#34;</span>))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">menu_1 <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;Are you ...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">1. Storing/Updating a birthday</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">2. Looking up a birthday</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">Your choice: &#34;</span>))
 
 <span style="color:#66d9ef">if</span> menu_1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
     <span style="color:#f92672">...</span>
@@ -510,7 +510,7 @@ ambika<span style="color:#f92672">.</span>displayFriends()
 </ol>
 <p><code>birthdays[birthday_person] = birthday</code></p>
 <p><code>birthday_person</code> is a string and will be used as the key, and <code>birthday</code>, also a string, will be used as the value.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> menu_1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> menu_1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
     birthday_person <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Whose birthday is it? &#34;</span>)
     birthday <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;When is their birthday? (MM/DD/YYYY) &#34;</span>)
     <span style="color:#75715e"># Creating a dictionary entry where the key is their name</span>
@@ -523,7 +523,7 @@ ambika<span style="color:#f92672">.</span>displayFriends()
 <li>Check if <code>birthday_person</code> is in <code>birthdays.keys()</code>. Every dictionary in Python has a method called <code>keys()</code> that returns a list of all the keys in the dictionary, so if the person&rsquo;s name isn&rsquo;t in that list, we don&rsquo;t have their birthday stored</li>
 <li>Wait for a <code>KeyError</code> to be thrown and catch the exception it throws. If you try to look up a key in a dictionary when there&rsquo;s no entry with that key, Python will throw an exception called <code>KeyError</code>. You could always catch the exception and respond accordingly, but we&rsquo;ll be going with the first method.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">elif</span> menu_1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">elif</span> menu_1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
     menu_2 <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;Would you like to ...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">1. Look up someone&#39;s birthday</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">2. View all stored birthdays</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">Your choice: &#34;</span>))
     <span style="color:#66d9ef">if</span> menu_2 <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
         birthday_person <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Whose birthday are you looking up? &#34;</span>)
@@ -531,19 +531,19 @@ ambika<span style="color:#f92672">.</span>displayFriends()
         <span style="color:#75715e"># birthdays. The keys() method on a dictionary returns a list of</span>
         <span style="color:#75715e"># keys for that dictionary</span>
         <span style="color:#66d9ef">if</span> birthday_person <span style="color:#f92672">in</span> birthdays<span style="color:#f92672">.</span>keys(): 
-            <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{birthday_person}&#39;s birthday is on {birthdays[birthday_person]}&#34;</span>)
+            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>birthday_person<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;s birthday is on </span><span style="color:#e6db74">{</span>birthdays[birthday_person]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
         <span style="color:#66d9ef">else</span>:
-            <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{birthday_person}&#39;s birthday is not stored.&#34;</span>)
+            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>birthday_person<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;s birthday is not stored.&#34;</span>)
 </code></pre></div><p>If we want to print out all the birthdays that are currently stored, all we need to do is <code>for</code> loop over <code>birthdays.keys()</code> like so:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">elif</span> menu_2 <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;All stored birthdays are listed here:&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">elif</span> menu_2 <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
+        print(<span style="color:#e6db74">&#34;All stored birthdays are listed here:&#34;</span>)
         <span style="color:#66d9ef">for</span> birthday_person <span style="color:#f92672">in</span> birthdays<span style="color:#f92672">.</span>keys():
-            <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{birthday_person}&#39;s birthday is on {birthdays[birthday_person]}&#34;</span>)
+            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>birthday_person<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;s birthday is on </span><span style="color:#e6db74">{</span>birthdays[birthday_person]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
 </code></pre></div><p>Now all we need to do is handle invalid number entries and make sure we write any changes we&rsquo;ve made to the birthdays dictionary to the JSON file:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">else</span>:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">else</span>:
+        print(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
 <span style="color:#66d9ef">else</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
+    print(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
 
 <span style="color:#75715e"># Update the birthdays file</span>
 <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;./birthdays.json&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>) <span style="color:#66d9ef">as</span> birthday_file:
@@ -551,7 +551,7 @@ ambika<span style="color:#f92672">.</span>displayFriends()
     json<span style="color:#f92672">.</span>dump(birthdays, birthday_file)
 </code></pre></div><p>The <code>json.dump</code> function takes a dictionary as well as a JSON file as input, and writes the contents of the dictionary to the file.</p>
 <p>Let&rsquo;s put it all together:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> os <span style="color:#f92672">import</span> path
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> os <span style="color:#f92672">import</span> path
 <span style="color:#f92672">import</span> json
 
 <span style="color:#66d9ef">if</span> path<span style="color:#f92672">.</span>exists(<span style="color:#e6db74">&#34;./birthdays.json&#34;</span>):
@@ -579,17 +579,17 @@ menu_1 <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74
         <span style="color:#75715e"># birthdays. The keys() method on a dictionary returns a list of</span>
         <span style="color:#75715e"># keys for that dictionary</span>
         <span style="color:#66d9ef">if</span> birthday_person <span style="color:#f92672">in</span> birthdays<span style="color:#f92672">.</span>keys(): 
-            <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{birthday_person}&#39;s birthday is on {birthdays[birthday_person]}&#34;</span>)
+            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>birthday_person<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;s birthday is on </span><span style="color:#e6db74">{</span>birthdays[birthday_person]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
         <span style="color:#66d9ef">else</span>:
-            <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{birthday_person}&#39;s birthday is not stored.&#34;</span>)
+            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>birthday_person<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;s birthday is not stored.&#34;</span>)
     <span style="color:#66d9ef">elif</span> menu_2 <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;All stored birthdays are listed here:&#34;</span>)
+        print(<span style="color:#e6db74">&#34;All stored birthdays are listed here:&#34;</span>)
         <span style="color:#66d9ef">for</span> birthday_person <span style="color:#f92672">in</span> birthdays<span style="color:#f92672">.</span>keys():
-            <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{birthday_person}&#39;s birthday is on {birthdays[birthday_person]}&#34;</span>)
+            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>birthday_person<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;s birthday is on </span><span style="color:#e6db74">{</span>birthdays[birthday_person]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
     <span style="color:#66d9ef">else</span>:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
+        print(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
 <span style="color:#66d9ef">else</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
+    print(<span style="color:#e6db74">&#34;Invalid entry&#34;</span>)
 
 <span style="color:#75715e"># Update the birthdays file</span>
 <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;./birthdays.json&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>) <span style="color:#66d9ef">as</span> birthday_file:
@@ -621,7 +621,7 @@ menu_1 <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        4046 Words
+        4044 Words
       </p>
 
       <p>
