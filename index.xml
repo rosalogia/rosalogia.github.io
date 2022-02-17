@@ -47,32 +47,13 @@ Note: arguably the most important thing on this page is the While Learning to Pr
     </item>
     
     <item>
-      <title>Python for Java Programmers</title>
-      <link>/posts/java-to-python/</link>
-      <pubDate>Mon, 07 Sep 2020 02:00:50 -0400</pubDate>
-      
-      <guid>/posts/java-to-python/</guid>
-      <description>The bulk of the content I plan on including in this site has to do with helping less experienced programmers in my class familiarise themselves with programming tools, practices and environments that are more common and useful outside of an academic [or, at least, undergraduate] environment. Python is a simple and powerful programming language that sees a lot of use in professional, casual and open-source spaces, and knowing it can make you more employable but can also help you make your life easier or participate in open source projects that interest you.</description>
-    </item>
-    
-    <item>
-      <title>Setting Up a Discord Bot Development Environment with Python</title>
-      <link>/posts/rucs24-setup/</link>
-      <pubDate>Sat, 05 Sep 2020 23:36:21 -0400</pubDate>
-      
-      <guid>/posts/rucs24-setup/</guid>
-      <description>This guide was originally written to meet the particular needs of the Rutgers Computer Science - Class of 2024 Discord Bot, and has been included on this site because I personally feel that it is a generally useful and informative guide for those who have never developed outside of an academic environment, and wish to familiarise themselves with the tools and procedures of open source development.
-RUCS24-Bot is a Discord bot written in Python.</description>
-    </item>
-    
-    <item>
       <title>About</title>
       <link>/about/</link>
       <pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
       <description>Hi. My name is Ambika. You can learn a little about me and what I do on this page:
- I am a student at Rutgers, The State University of New Jersey, majoring in Computer Science and Mathematics. I am an OCaml developer for Marigold. I enjoy developing and contributing to open-source software projects that I make use of or that interest me. I am particularly enthusiastic about functional programming, as well as the F#, OCaml, and Rust programming languages.</description>
+ I am a student at the University of Texas, Dallas, majoring in Computer Science and Mathematics. I am an OCaml developer for Marigold. I enjoy developing and contributing to open-source software projects that I make use of or that interest me. I am particularly enthusiastic about functional programming, as well as the F#, OCaml, and Rust programming languages.</description>
     </item>
     
   </channel>

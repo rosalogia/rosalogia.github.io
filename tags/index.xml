@@ -62,50 +62,5 @@
       <description></description>
     </item>
     
-    <item>
-      <title>java</title>
-      <link>/tags/java/</link>
-      <pubDate>Mon, 07 Sep 2020 02:00:50 -0400</pubDate>
-      
-      <guid>/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>/tags/programming/</link>
-      <pubDate>Mon, 07 Sep 2020 02:00:50 -0400</pubDate>
-      
-      <guid>/tags/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>/tags/python/</link>
-      <pubDate>Mon, 07 Sep 2020 02:00:50 -0400</pubDate>
-      
-      <guid>/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>discord</title>
-      <link>/tags/discord/</link>
-      <pubDate>Sat, 05 Sep 2020 23:36:21 -0400</pubDate>
-      
-      <guid>/tags/discord/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>git</title>
-      <link>/tags/git/</link>
-      <pubDate>Sat, 05 Sep 2020 23:36:21 -0400</pubDate>
-      
-      <guid>/tags/git/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
