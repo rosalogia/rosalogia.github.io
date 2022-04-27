@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="">
+<meta name="description" content="Links:
+ Previous post Glossary Install Guide  The Console Soon we&amp;rsquo;re going to start writing programs. They will be a little boring, and it will be hard to see the practicality of it all for a little while. I&amp;rsquo;ll try to show you practical examples sooner than later, but in the meantime please bear with me and keep your mind open. Most programmers start off writing applications known as &amp;ldquo;console applications&amp;rdquo;." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="/rpg-guide-2/" />
+
+
+    <title>
+        
+            Bika Bika&#39;s RPG Guide to Programming : Part 2 :: Ambika Eshwar  — Functional Programmer and PLT Enthusiast
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="Bika Bika&#39;s RPG Guide to Programming : Part 2">
+<meta itemprop="description" content="Links:
+ Previous post Glossary Install Guide  The Console Soon we&rsquo;re going to start writing programs. They will be a little boring, and it will be hard to see the practicality of it all for a little while. I&rsquo;ll try to show you practical examples sooner than later, but in the meantime please bear with me and keep your mind open. Most programmers start off writing applications known as &ldquo;console applications&rdquo;.">
+
+<meta itemprop="wordCount" content="3012"><meta itemprop="image" content=""/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content=""/>
+
+<meta name="twitter:title" content="Bika Bika&#39;s RPG Guide to Programming : Part 2"/>
+<meta name="twitter:description" content="Links:
+ Previous post Glossary Install Guide  The Console Soon we&rsquo;re going to start writing programs. They will be a little boring, and it will be hard to see the practicality of it all for a little while. I&rsquo;ll try to show you practical examples sooner than later, but in the meantime please bear with me and keep your mind open. Most programmers start off writing applications known as &ldquo;console applications&rdquo;."/>
+
+
+
+
+    <meta property="og:title" content="Bika Bika&#39;s RPG Guide to Programming : Part 2" />
+<meta property="og:description" content="Links:
+ Previous post Glossary Install Guide  The Console Soon we&rsquo;re going to start writing programs. They will be a little boring, and it will be hard to see the practicality of it all for a little while. I&rsquo;ll try to show you practical examples sooner than later, but in the meantime please bear with me and keep your mind open. Most programmers start off writing applications known as &ldquo;console applications&rdquo;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/rpg-guide-2/" /><meta property="og:image" content=""/><meta property="article:section" content="" />
+
+<meta property="og:site_name" content="Ambika Eshwar" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/rosalogia</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/about">About</a></li><li><a href="/apps">Apps</a></li><li><a href="/posts">Blog</a></li><li><a href="/resources">Resources</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="/rpg-guide-2/">Bika Bika&rsquo;s RPG Guide to Programming : Part 2</a></h2>
+
+            
+            
+            
+                <hr />
+                <aside id="toc">
+                <div class="toc-title">Table of Contents</div>
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-console">The Console</a></li>
+    <li><a href="#coding-and-c">Coding and C#</a>
+      <ul>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#exercise">Exercise</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </aside>
+                <hr />
+            
+
+            <div class="post-content">
+                <p>Links:</p>
+<ul>
+<li><a href="/rpg-guide-1">Previous post</a></li>
+<li><a href="/rpg-guide-glossary">Glossary</a></li>
+<li><a href="/rpg-guide-install">Install Guide</a></li>
+</ul>
+<h2 id="the-console">The Console</h2>
+<p>Soon we&rsquo;re going to start writing programs. They will be a little boring, and it will be hard to see the practicality of it all for a little while.
+I&rsquo;ll try to show you practical examples sooner than later, but in the meantime please bear with me and keep your mind open. Most programmers
+start off writing applications known as &ldquo;console applications&rdquo;. A &ldquo;console&rdquo; is a program on your computer that presents you with little more
+than a black box with a place to type text into. On Windows, you can search for &quot;&quot; in the windows menu to open one, or hit Win+R, type in <code>.exe</code>
+if it&rsquo;s not already in the window that pops up, and hit enter. From this &ldquo;console&rdquo;, you can run programs and applications by typing in their file path.
+For example, if a ready to run program lived in your Documents folder, you could type in <code>C:\Users\bika\Documents\my_program.exe</code> and hit enter, and
+this would run that program.</p>
+<p>The console is kind of like the file explorer on your computer. At any point in time, while using the console, you are &ldquo;in&rdquo; a folder. To
+know exactly which folder you&rsquo;re in, try typing <code>cd</code> and hitting enter. This will show you the &ldquo;<code>c</code>urrent <code>d</code>irectory&rdquo;. Directory is tech-speak
+for folder. If you&rsquo;d like to see a list of all the files and folders in the current directory, you can type in <code>dir</code> and hit enter. The list
+may be long, and it may be a little intimidating to look at, but it&rsquo;s not all that different from viewing the list of files in your file explorer.
+These things I&rsquo;ve asked you to try typing in are called &ldquo;commands&rdquo;. The line of text that&rsquo;s shown to you in the console where you can type in a command
+or the name of a program to run is called the &ldquo;command-line&rdquo;. A console application might also be known as a command-line application. The gist
+of these applications is that they don&rsquo;t require or create a graphical user interface. Like <code>dir</code>, you start command-line applications from
+the console window and the program runs and does what it was designed to do all within the same console window.</p>
+<p>Is this a little boring? Yeah, maybe, but you&rsquo;ll find that the skills transfer over extremely well when you&rsquo;re making more practical kinds
+of applications. Console apps are simple and give you a good mental model for how programs work. When you&rsquo;re making more interesting apps in
+the future, you can use the things you&rsquo;re familiar with from the world of console app programming as a reference point for what you want to be
+able to do.</p>
+<p>As a final note, I want to mention that the console/command-line is a programmer&rsquo;s friend, not their adversary. You will be forced to acquire some
+level of comfort with it as you get further into programming, and slowly consuming bite-sized tips and tricks on how to use it effectively is a good
+way to ensure you don&rsquo;t end up hating it and trying to work against it (which never ends well). Don&rsquo;t be scared when you&rsquo;re asked to issue a few
+commands in your console. Sometimes things will go wrong, maybe because of a typo or because something is legitimately broken. This is always solvable,
+there are plenty of people online who have probably faced the issue you&rsquo;re facing, and chances are if you&rsquo;re reading this you can ask me directly for help.</p>
+<h2 id="coding-and-c">Coding and C#</h2>
+<p>Large communities of programmers, some employed for this purpose and others doing it as nothing more than a hobby, have been kind enough
+to create really pleasant to work with &ldquo;computer programming languages&rdquo;. A <a href="/rpg-guide-glossary#programming-language">programming language</a> specifies a way for us to communicate with
+our computers and demand certain behaviours and resources from them. To program we must learn a language, and there are many to choose from.
+In this guide we&rsquo;ll use <a href="/rpg-guide-glossary#c-1">C#</a> (pronounced C Sharp). I think it&rsquo;s a nice language, it was designed to be extremely well suited to programming on Windows
+but in recent years has become well suited to programming on other operating systems as well. It has a lot of the qualities that make up a strong
+modern programming language. Furthermore, it&rsquo;s an extremely popular language for making video games. Toward the end of this guide, I&rsquo;d like if
+we could try our hand at making a real playable game using this language.</p>
+<p>We need a place to write code and run it to see what it does. I&rsquo;ve written a short guide to installing the necessary tools for getting started <a href="/rpg-guide-install">here</a>,
+so please follow those steps carefully before progressing.</p>
+<p>Open VS Code and in the top left, select File &gt; Open Folder. Find a place to store your first C# Project, or create a folder somewhere convenient, like your desktop
+or your Documents folder. Once you&rsquo;ve created it, double click on it to open it and hit Select Folder to open it in VS Code.</p>
+<p>Let&rsquo;s create our first C# project within this folder. Press Ctrl + ` to open the console window within VS Code. In that window, enter the command <code>dotnet new console</code>.
+This will create a project in the currently opened folder, which should have a file
+in it that ends with the extension <code>.cs</code>, indicating that this is our C# code file.</p>
+<p>We used the &ldquo;console&rdquo; template to make a C# project that has an extremely simple working program already within it. If we press Ctrl + ` to open the console
+window within VS Code, we can type in <code>dotnet run</code> to see the result of running this program within the console. Your screen should look something like this:</p>
+<p><img src="https://i.imgur.com/fQYXFib.png" alt=""></p>
+<p>I called my project folder &ldquo;First&rdquo;, so if you see that text in my screenshot, it should be whatever you called your project folder in your screenshot.</p>
+<p>Let&rsquo;s talk about what&rsquo;s <em>in</em> the code that was included in our project by default</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>);
+</span></span></code></pre></div><p>There&rsquo;s only one line of code in this program, and it does something incredibly simple. When this program is <a href="/rpg-guide-glossary#execute">executed</a>,
+this line of code gets run by the computer in the console we execute our program in. The line says &ldquo;Write the text within these parentheses and quotes
+to the console window&rdquo;. Surely enough, this is the result of executing our program. You can change the text within the quotes to see the program output
+different things when we run it.</p>
+<p>This line of code is a <a href="/rpg-guide-glossary#statement">&ldquo;statement&rdquo;</a>. A statement is essentially a command we give to the computer from within our code. Statements always end with
+a semi-colon, <code>;</code>, and it&rsquo;s important to keep this in mind. Your text editor will usually give you a hand if it detects you&rsquo;re missing one, but the resulting
+error messages can be confusing and off-putting.</p>
+<p>Let&rsquo;s explore another kind of statement, one that doesn&rsquo;t <a href="/rpg-guide-glossary#print">print</a> to the console window. One thing computers are great at
+is remembering the things you tell it to remember. We should quickly learn how to take advantage of the computer&rsquo;s great memory. The way we begin
+doing this is by creating what&rsquo;s known as a <a href="/rpg-guide-glossary#variable">variable</a>. A variable consists of a name for some piece of information, and the actual information it
+refers to. There is a real world analogue to these. Not the type you might have heard about in a math class or a science class (although they share the
+name for a reason), but rather the analogue I&rsquo;m talking about is when we refer to things indirectly. &ldquo;Bika&rsquo;s birthday&rdquo; can be considered a name for some
+piece of information. If we wrote down &ldquo;Bika&rsquo;s birthday: 03/30/2002&rdquo; somewhere, this would be incredibly similar to how storing information in variables
+works in computer programs. Let&rsquo;s see an example to solidify this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerName = <span style="color:#e6db74">&#34;Sakamoto&#34;</span>;
+</span></span></code></pre></div><p>We use the <a href="/rpg-guide-glossary#keyword">keyword</a> &ldquo;var&rdquo; to communicate to the computer that we&rsquo;re creating a new variable. We name it &ldquo;playerName&rdquo; and use the equals sign to
+indicate that we&rsquo;re going to associate the information that follows with the name that we gave this variable.
+That information is, obviously, the name of the player in our made-up RPG scenario. Of course, nothing was stopping us from naming the variable something
+obscure and meaningless like &ldquo;a&rdquo; or &ldquo;njk345bl&rdquo;,
+but naming your variables in a way that describes the information they&rsquo;re associated with is a smart idea. Notice that creating a variable is a statement,
+so we used a semicolon at the end.</p>
+<p>Now that we&rsquo;ve created a variable, we can use it later in our program, for example when we want to print things out:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerName = <span style="color:#e6db74">&#34;Bika&#34;</span>;
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Hello, &#34;</span> + playerName + <span style="color:#e6db74">&#34;!&#34;</span>);
+</span></span></code></pre></div><p>If we issue the command <code>dotnet run</code> again, this time our program will print out a greeting to the player specifically.</p>
+<p>One kind of thing that shows up when we&rsquo;re writing programs besides statements are <a href="/rpg-guide-glossary#expression">&ldquo;expressions&rdquo;</a>. Expressions are pieces of code that are
+one of two things:</p>
+<ul>
+<li>Information, otherwise known as &ldquo;data&rdquo;, in its purest form, e.g. text like &ldquo;Sakamoto&rdquo; or a number like 42</li>
+<li>Something that can be &ldquo;evaluated&rdquo; or &ldquo;simplified&rdquo; into pure information, e.g. &ldquo;Hello, &quot; + &ldquo;Sakamoto&rdquo; simplifies to &ldquo;Hello, Sakamoto&rdquo;,
+and <code>playerName</code> simplifies to &ldquo;Sakamoto&rdquo; because we defined the variable <code>playerName</code> that way. Similarly, <code>&quot;Hello, &quot; + playerName</code> simplifies
+to &ldquo;Hello, Sakamoto&rdquo;, and is also an expression.</li>
+</ul>
+<p>If you look back at our code examples, you&rsquo;ll see that expressions show up exclusively between parentheses or on the right-hand side of a variable
+definition. Expressions are often parts of statements, and anywhere you could&rsquo;ve had some kind of pure information like text between quotes, you can
+substitute an expression that simplifies to pure information. This is why the third line of our program works. Similarly, we can create a new
+variable that uses an existing variable in its definition:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerName = <span style="color:#e6db74">&#34;Sakamoto&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerLastName = <span style="color:#e6db74">&#34;el Gato&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerFullName = myName + <span style="color:#e6db74">&#34; &#34;</span> + playerLastName;
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Hello, &#34;</span> + playerFullName + <span style="color:#e6db74">&#34;!&#34;</span>);
+</span></span></code></pre></div><p>If you run this program, it should print out &ldquo;Hello, Sakamoto el Gato!&rdquo;.</p>
+<p>We can store data that isn&rsquo;t text as well; C# supports a number of <a href="/rpg-guide-glossary#data-type">&ldquo;data types&rdquo;</a> by default, and has specialized names for them which are also keywords.</p>
+<ul>
+<li><code>int</code> : Integers, i.e. whole numbers which may be positive or negative</li>
+<li><code>float</code> : &ldquo;Floating point&rdquo; numbers, i.e. numbers which may have decimal values such as <code>1.12</code></li>
+<li><code>double</code> : &ldquo;Double-precision floating point&rdquo; numbers. These are just like <code>float</code>s, but they are generally more precise, so we will always use them instead.</li>
+<li><code>bool</code> : &ldquo;Booleans&rdquo;, which are values that can only be &ldquo;True&rdquo; or &ldquo;False&rdquo; and have no more to them. Consider, e.g. <code>var hasLastName = true;</code>.</li>
+<li><code>char</code> : Characters, such as &lsquo;a&rsquo;, &lsquo;b&rsquo;, &lsquo;c&rsquo;, &lsquo;1&rsquo;, &lsquo;2&rsquo;, &lsquo;.&rsquo;, &lsquo;,&rsquo;, etc.</li>
+<li><code>string</code> : Text, which we&rsquo;ve seen a lot of so far</li>
+</ul>
+<p>When we create a variable in C#, we have the option of asking the computer to simply figure out what type of data our variable contains based on what we define it as.
+For example, assigning &ldquo;Bika&rdquo; to a variable allows the computer to figure out that the variable contains a &ldquo;string&rdquo; value. If I wrote, instead, <code>var myName = 'b';</code>,
+it would instead believe the variable <code>myName</code> contained a &ldquo;char&rdquo; value. To reduce this ambiguity, we can choose to be specific about the type of variable we&rsquo;re
+creating:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">string</span> playerName = <span style="color:#e6db74">&#34;Sakamoto&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">string</span> playerLastName = <span style="color:#e6db74">&#34;el Gato&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">string</span> playerFullName = myName + <span style="color:#e6db74">&#34; &#34;</span> + playerLastName;
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Hello, &#34;</span> + playerFullName + <span style="color:#e6db74">&#34;!&#34;</span>);
+</span></span></code></pre></div><p>This doesn&rsquo;t change the functionality of the program at all, it just skips the step of having the computer figure out what type of variables myName and myFullName are.
+We usually don&rsquo;t need to bother with this, though.</p>
+<p>Let&rsquo;s see some examples of creating different types of variables and see what kinds of expressions we can make with them:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Strings</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerName = <span style="color:#e6db74">&#34;Sakamoto&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">string</span> playerLastName = <span style="color:#e6db74">&#34;el Gato&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Chars</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerFirstInitial = <span style="color:#e6db74">&#39;S&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">char</span> playerLastInitial = <span style="color:#e6db74">&#39;G&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Bools</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerIsAlive = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> playerIsHuman = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Ints</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerLevel = <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> playerExperience = <span style="color:#ae81ff">1000</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Doubles</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerHealth = <span style="color:#ae81ff">12.3</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">double</span> playerMaxHealth = <span style="color:#ae81ff">50.0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Player Profile:&#34;</span>);
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Name: &#34;</span> + playerName + <span style="color:#e6db74">&#34; &#34;</span> + playerLastName);
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Initials: &#34;</span> + playerFirstInitial + <span style="color:#e6db74">&#34;.&#34;</span> + playerLastInitial + <span style="color:#e6db74">&#34;.&#34;</span>);
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Level: &#34;</span> + playerLevel);
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Exp: &#34;</span> + playerExperience);
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Health: &#34;</span> + (playerHealth / playerMaxHealth * <span style="color:#ae81ff">100</span>) + <span style="color:#e6db74">&#34;%&#34;</span>);
+</span></span></code></pre></div><p>In this example, we didn&rsquo;t get to use our boolean variables or our char variables, but we&rsquo;ll cover that a little later. Note that almost any value can be &ldquo;added&rdquo; to a string.
+That&rsquo;s what we&rsquo;re doing when we write, e.g. <code>&quot;Level: &quot; + playerLevel</code>. The text in quotes, <code>&quot;Level: &quot;</code>, is an expression of type string. <code>playerLevel</code> is
+an expression of type <code>int</code>, but because C# knows how to combine text with many kinds of non-text data, this works out just fine. If we wanted to do the opposite,
+that is, add a string to an int, C# wouldn&rsquo;t know what to do.</p>
+<p>Unsurprisingly, you can do simple math on numerical types like <code>int</code> and <code>double</code>. I don&rsquo;t think that&rsquo;s worth discussing too much. The order of operations that you
+learn in math class still holds, but if you don&rsquo;t remember it you can always just use parentheses!</p>
+<p>So far, all the variables we&rsquo;ve stored have been given values directly in the code. In other words, we have the option to not use variables at all, and just substitute
+the use of each variable with the data they&rsquo;re associated with. The reasons to use variables in the first place becomes more obvious as we write more &ldquo;dynamic&rdquo; programs.
+Let&rsquo;s look at one way to make our program more dynamic: taking user input. In some crude sense of the word, this is a game after all, so the player should have some control
+over what happens as the program is running. Let&rsquo;s allow the player to choose their own player name.</p>
+<p>Similar to how we write <code>Console.WriteLine</code> (which has been left somewhat unexplained, since that will be covered more completely later on) to <em>output</em> text to the console,
+we can write <code>Console.ReadLine</code> to receive <em>input</em> from the console. It works like this: <code>Console.ReadLine()</code> is an <em>expression</em> that simplifies to a string, the text
+that the user entered in the console window while the program was running at this point. When you run your program and reach the line that uses <code>Console.ReadLine()</code>,
+the program will stop executing until the user types something in and hits enter, then the program continues. Let&rsquo;s see how it works:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Strings</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerName = Console.ReadLine();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">string</span> playerLastName = <span style="color:#e6db74">&#34;el Gato&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Chars</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerFirstInitial = <span style="color:#e6db74">&#39;S&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">char</span> playerLastInitial = <span style="color:#e6db74">&#39;G&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Bools</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerIsAlive = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> playerIsHuman = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Ints</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerLevel = <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> playerExperience = <span style="color:#ae81ff">1000</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Floats</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerHealth = <span style="color:#ae81ff">12.3</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">double</span> playerMaxHealth = <span style="color:#ae81ff">50.0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Player Profile:&#34;</span>);
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Name: &#34;</span> + playerName + <span style="color:#e6db74">&#34; &#34;</span> + playerLastName);
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Level: &#34;</span> + playerLevel);
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Exp: &#34;</span> + playerExperience);
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Health: &#34;</span> + (playerHealth / playerMaxHealth * <span style="color:#ae81ff">100</span>) + <span style="color:#e6db74">&#34;%&#34;</span>);
+</span></span></code></pre></div><p>The program works almost exactly the same as before. The difference is that as soon as the program runs, you must type in the player&rsquo;s name and hit enter
+for the rest of the program to continue. Once you do, the program uses the name you entered as the value of <code>playerName</code> as expected.</p>
+<p>The programs we write from now on will sit on the foundation of <code>Console.WriteLine</code> and <code>Console.ReadLine</code>. Most programs need some way to display information
+to the user who ran the program and receive input from that same user. In the world of console applications, this is exactly how that&rsquo;s done.</p>
+<p>We can abuse <code>Console.ReadLine()</code> in a way that can make our programs a little more interesting. Note that all our <code>Console.WriteLine</code> lines execute immediately
+one after the other. What if we wanted to enforce a kind of pause between them, if, for example, we wanted to show the user dialogue between characters. We can do
+the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Strings</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerName = Console.ReadLine();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">string</span> playerLastName = <span style="color:#e6db74">&#34;el Gato&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Chars</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerFirstInitial = <span style="color:#e6db74">&#39;S&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">char</span> playerLastInitial = <span style="color:#e6db74">&#39;G&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Bools</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerIsAlive = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> playerIsHuman = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Ints</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerLevel = <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> playerExperience = <span style="color:#ae81ff">1000</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Floats</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> playerHealth = <span style="color:#ae81ff">12.3</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">double</span> playerMaxHealth = <span style="color:#ae81ff">50.0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Player Profile:&#34;</span>);
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Name: &#34;</span> + playerName);
+</span></span><span style="display:flex;"><span>Console.ReadLine();
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Level: &#34;</span> + playerLevel);
+</span></span><span style="display:flex;"><span>Console.ReadLine();
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Exp: &#34;</span> + playerExperience);
+</span></span><span style="display:flex;"><span>Console.ReadLine();
+</span></span><span style="display:flex;"><span>Console.WriteLine(<span style="color:#e6db74">&#34;Health: &#34;</span> + (playerHealth / playerMaxHealth * <span style="color:#ae81ff">100</span>) + <span style="color:#e6db74">&#34;%&#34;</span>);
+</span></span></code></pre></div><p>This way, the user has to press enter to see the next line. Note, however, that this forces a line of space between each printed line.</p>
+<h3 id="summary">Summary</h3>
+<p>In this post, we began programming. We discussed the <a href="/rpg-guide-glossary#console">console</a>, where we issue commands to get our
+computer to do certain things and where we see our <a href="/rpg-guide-glossary#console-application">console applications</a> in action.
+We discussed the <a href="/rpg-guide-glossary#c-1">C#</a> language, which is a <a href="/rpg-guide-glossary#programming-language">programming language</a>,
+and we began learning how to use it. We learned how to <a href="/rpg-guide-glossary#execute">execute</a> our programs, how to
+<a href="/rpg-guide-glossary#print">print to the screen</a>, how to store data of various <a href="/rpg-guide-glossary#data-type">types</a> in <a href="/rpg-guide-glossary#variable">variables</a>,
+and about <a href="/rpg-guide-glossary#statement">statements</a> and <a href="/rpg-guide-glossary#expression">expressions</a>. Finally, we learned how to obtain input
+from the user in the console window.</p>
+<p>If you feel like some of this stuff flew over your head, that&rsquo;s okay. You can always ask questions, but if you want to be sure you understand all that&rsquo;s necessary
+to move on to the next post, make sure you can complete the exercise that follows.</p>
+<h3 id="exercise">Exercise</h3>
+<p>Remove all the lines we wrote for our first program, and prepare to write a new one. In this program, we&rsquo;ll show the player some dialogue, but the player
+will choose their name and the name of the person they&rsquo;re speaking to. Between each line of dialogue, the player should have to press enter to see the next
+line. Feel free to look at the program we wrote above as reference while writing this program, and feel free to be as creative as you&rsquo;d like to be.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+            
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.2d3d449fc0ff117f00ac91342a8f76cd5b710411d7a0254dbe75da3234d2f685d6a0c44cff60c414e90b6a149da8e4032c713c25e4e6838e2e3918dc0ad2e81c.js" integrity="sha512-LT1En8D/EX8ArJE0Ko92zVtxBBHXoCVNvnXaMjTS9oXWoMRM/2DEFOkLahSdqOQDLHE8JeTmg44uORjcCtLoHA=="></script>
+
+
+
+    </body>
+</html>

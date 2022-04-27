@@ -56,5 +56,46 @@ Note: arguably the most important thing on this page is the While Learning to Pr
  I am a student at the University of Texas, Dallas, majoring in Computer Science and Mathematics. I am an OCaml developer for Marigold. I enjoy developing and contributing to open-source software projects that I make use of or that interest me. I am particularly enthusiastic about functional programming, as well as the F#, OCaml, and Rust programming languages.</description>
     </item>
     
+    <item>
+      <title>Bika Bika&#39;s RPG Guide to Programming : Glossary</title>
+      <link>/rpg-guide-glossary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/rpg-guide-glossary/</guid>
+      <description>This page documents a list of words that might be unfamiliar to you but end up getting used quite a few times throughout this series of posts.
+C Console A program on your computer that presents you with a black box with a line of text that you can type after. From the console window, you can execute programs.
+Console Application A program that does things exclusively within the console window, and thus can be run from the console window without opening any other windows.</description>
+    </item>
+    
+    <item>
+      <title>Bika Bika&#39;s RPG Guide to Programming : Part 1</title>
+      <link>/rpg-guide-1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/rpg-guide-1/</guid>
+      <description>I like to write prefaces so I hope you&amp;rsquo;ll be a little patient with me. I think programming gets to be really relaxing at a certain level of experience, and I don&amp;rsquo;t think learning it is necessarily painful in comparison either. I think computer science degrees to an injustice to how pleasant and relaxing it can be. In this guide I want to make sure we lean on the relaxing side, and I&amp;rsquo;m hoping that once you get the hang of programming, it continues to be a relaxing thing for you.</description>
+    </item>
+    
+    <item>
+      <title>Bika Bika&#39;s RPG Guide to Programming : Part 2</title>
+      <link>/rpg-guide-2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/rpg-guide-2/</guid>
+      <description>Links:
+ Previous post Glossary Install Guide  The Console Soon we&amp;rsquo;re going to start writing programs. They will be a little boring, and it will be hard to see the practicality of it all for a little while. I&amp;rsquo;ll try to show you practical examples sooner than later, but in the meantime please bear with me and keep your mind open. Most programmers start off writing applications known as &amp;ldquo;console applications&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Bika Bika&#39;s RPG Guide to Programming : Set Up</title>
+      <link>/rpg-guide-install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/rpg-guide-install/</guid>
+      <description>This page is an installation guide for all the tools we&amp;rsquo;ll need to begin writing programs in C#. This guide is oriented towards users of Windows. If you use Mac, you can talk to me for guidance on how to set up.
+Here&amp;rsquo;s a list of the tools we&amp;rsquo;re going to install and what we&amp;rsquo;ll use them for:
+ The .NET SDK: This is a set of software development tools that includes the C# programming language as a part of it.</description>
+    </item>
+    
   </channel>
 </rss>
