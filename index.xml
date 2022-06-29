@@ -53,7 +53,7 @@ Note: arguably the most important thing on this page is the While Learning to Pr
       
       <guid>/about/</guid>
       <description>Hi. My name is Ambika. You can learn a little about me and what I do on this page:
- I am a student at the University of Texas, Dallas, majoring in Computer Science and Mathematics. I am an OCaml developer for Marigold. I enjoy developing and contributing to open-source software projects that I make use of or that interest me. I am particularly enthusiastic about functional programming, as well as the F#, OCaml, and Rust programming languages.</description>
+I have been developing software since 2016, primarily in F# and OCaml. I enjoy developing and contributing to open-source software projects that I make use of or that interest me. I am particularly enthusiastic about functional programming, as well as the F#, OCaml, and Rust programming languages. I generally prefer developing software that will be used by other developers, e.</description>
     </item>
     
     <item>
@@ -74,7 +74,7 @@ Console Application A program that does things exclusively within the console wi
       
       <guid>/rpg-guide-1/</guid>
       <description>All Posts:
- Part 1 Part 2 Glossary Install Guide  I like to write prefaces so I hope you&amp;rsquo;ll be a little patient with me. I think programming gets to be really relaxing at a certain level of experience, and I don&amp;rsquo;t think learning it is necessarily painful in comparison either. I think computer science degrees do an injustice to how pleasant and relaxing it can be. In this guide I want to make sure we lean on the relaxing side, and I&amp;rsquo;m hoping that once you get the hang of programming, it continues to be a relaxing thing for you.</description>
+Part 1 Part 2 Glossary Install Guide I like to write prefaces so I hope you&amp;rsquo;ll be a little patient with me. I think programming gets to be really relaxing at a certain level of experience, and I don&amp;rsquo;t think learning it is necessarily painful in comparison either. I think computer science degrees do an injustice to how pleasant and relaxing it can be. In this guide I want to make sure we lean on the relaxing side, and I&amp;rsquo;m hoping that once you get the hang of programming, it continues to be a relaxing thing for you.</description>
     </item>
     
     <item>
@@ -84,7 +84,7 @@ Console Application A program that does things exclusively within the console wi
       
       <guid>/rpg-guide-2/</guid>
       <description>Links:
- Previous post Glossary Install Guide  The Console Soon we&amp;rsquo;re going to start writing programs. They will be a little boring, and it will be hard to see the practicality of it all for a little while. I&amp;rsquo;ll try to show you practical examples sooner than later, but in the meantime please bear with me and keep your mind open. Most programmers start off writing applications known as &amp;ldquo;console applications&amp;rdquo;.</description>
+Previous post Glossary Install Guide The Console Soon we&amp;rsquo;re going to start writing programs. They will be a little boring, and it will be hard to see the practicality of it all for a little while. I&amp;rsquo;ll try to show you practical examples sooner than later, but in the meantime please bear with me and keep your mind open. Most programmers start off writing applications known as &amp;ldquo;console applications&amp;rdquo;. A &amp;ldquo;console&amp;rdquo; is a program on your computer that presents you with little more than a black box with a place to type text into.</description>
     </item>
     
     <item>
@@ -95,7 +95,7 @@ Console Application A program that does things exclusively within the console wi
       <guid>/rpg-guide-install/</guid>
       <description>This page is an installation guide for all the tools we&amp;rsquo;ll need to begin writing programs in C#. This guide is oriented towards users of Windows. If you use Mac, you can talk to me for guidance on how to set up.
 Here&amp;rsquo;s a list of the tools we&amp;rsquo;re going to install and what we&amp;rsquo;ll use them for:
- The .NET SDK: This is a set of software development tools that includes the C# programming language as a part of it.</description>
+The .NET SDK: This is a set of software development tools that includes the C# programming language as a part of it.</description>
     </item>
     
   </channel>
