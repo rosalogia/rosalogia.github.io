@@ -57,6 +57,15 @@ I have been developing software since 2016, primarily in F# and OCaml. I enjoy d
     </item>
     
     <item>
+      <title>About Programming</title>
+      <link>/about-programming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about-programming/</guid>
+      <description>I think programming gets to be really relaxing at a certain level of experience, and I don&amp;rsquo;t think learning it is necessarily painful in comparison either. I think computer science degrees fail to demonstrate how pleasant and relaxing it can be. One of my girlfriend&amp;rsquo;s favorite hobbies is crocheting. At some point it occurred to me that I enjoy programming in a way that&amp;rsquo;s very similar to the way she enjoys crocheting.</description>
+    </item>
+    
+    <item>
       <title>Bika Bika&#39;s RPG Guide to Programming : Glossary</title>
       <link>/rpg-guide-glossary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -65,16 +74,6 @@ I have been developing software since 2016, primarily in F# and OCaml. I enjoy d
       <description>This page documents a list of words that might be unfamiliar to you but end up getting used quite a few times throughout this series of posts.
 C Console A program on your computer that presents you with a black box with a line of text that you can type after. From the console window, you can execute programs.
 Console Application A program that does things exclusively within the console window, and thus can be run from the console window without opening any other windows.</description>
-    </item>
-    
-    <item>
-      <title>Bika Bika&#39;s RPG Guide to Programming : Part 1</title>
-      <link>/rpg-guide-1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/rpg-guide-1/</guid>
-      <description>All Posts:
-Part 1 Part 2 Glossary Install Guide I like to write prefaces so I hope you&amp;rsquo;ll be a little patient with me. I think programming gets to be really relaxing at a certain level of experience, and I don&amp;rsquo;t think learning it is necessarily painful in comparison either. I think computer science degrees do an injustice to how pleasant and relaxing it can be. In this guide I want to make sure we lean on the relaxing side, and I&amp;rsquo;m hoping that once you get the hang of programming, it continues to be a relaxing thing for you.</description>
     </item>
     
     <item>
