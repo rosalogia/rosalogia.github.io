@@ -1,0 +1,18 @@
+- role: Software Development Engineer
+  org: Amazon Web Services · EC2 Images
+  date: "Jul 2024 – present"
+  desc: Building and maintaining public-facing APIs for Amazon Machine Images. Shipped AMI parent lineage tracking, Local Zone support for CreateImage/CopyImage, and AWS Service Quota support for AMI limits. On-call rotation member.
+
+- role: Software Development Engineer Intern
+  org: Amazon Web Services · EC2 Images
+  date: "Jun – Sep 2023"
+  desc: Developed [AMI deregistration protection](https://aws.amazon.com/about-aws/whats-new/2024/05/amazon-ec2-protects-amis-accidental-deregistration/) APIs, giving customers tools to prevent accidental or malicious deletion of root volumes.
+
+- role: Software Developer
+  org: Marigold
+  date: "Sep 2021 – Nov 2022"
+  desc: Lead developer of [Pollinate](https://github.com/marigold-dev/pollinate), a platform-agnostic P2P gossip networking library in OCaml. IC on [Deku](https://github.com/marigold-dev/deku), a sidechain framework for Tezos.
+
+- role: B.A. Computer Science
+  org: Rutgers University
+  date: "2020 – 2024"

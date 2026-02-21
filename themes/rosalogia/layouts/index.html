@@ -1,0 +1,78 @@
+{{ define "main" }}
+
+{{/* ── Header ── */}}
+<header>
+  <div class="site-tag">{{ .Site.Params.domain }}</div>
+  <h1>{{ .Site.Params.firstName }} <span>{{ .Site.Params.lastName }}</span></h1>
+  <p class="subtitle">{{ .Site.Params.tagline }}</p>
+  <p class="intro">{{ .Site.Params.intro | markdownify }}</p>
+  <nav>
+    <a href="#now">Now</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<hr class="divider">
+
+{{/* ── Now ── */}}
+<section id="now">
+  <div class="section-label">Now</div>
+  <div class="now-grid">
+    {{ range .Site.Data.now }}
+    <div class="now-item">
+      <span class="now-key">{{ .key }}</span>
+      <span class="now-val">{{ .val | markdownify }}</span>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+{{/* ── Experience ── */}}
+<section id="experience">
+  <div class="section-label">Experience</div>
+  {{ range .Site.Data.experience }}
+  <div class="exp-item">
+    <div>
+      <div class="exp-role">{{ .role }}</div>
+      <div class="exp-org">{{ .org }}</div>
+      {{ with .desc }}<div class="exp-desc">{{ . | markdownify }}</div>{{ end }}
+    </div>
+    <div class="exp-date">{{ .date | replaceRE "–" "<br>" | safeHTML }}</div>
+  </div>
+  {{ end }}
+</section>
+
+{{/* ── Projects ── */}}
+<section id="projects">
+  <div class="section-label">Projects</div>
+  {{ range .Site.Data.projects }}
+  <div class="project-item">
+    <div class="project-header">
+      <div class="project-name">{{ with .url }}<a href="{{ . }}">{{ end }}{{ .name }}{{ with .url }}</a>{{ end }}</div>
+      {{ with .tag }}<span class="project-tag">{{ . }}</span>{{ end }}
+    </div>
+    <div class="project-desc">{{ .desc }}</div>
+  </div>
+  {{ end }}
+</section>
+
+{{/* ── Contact ── */}}
+<section id="contact">
+  <div class="section-label">Find me</div>
+  <div class="links-row">
+    {{ range .Site.Data.links }}
+    <a class="link-chip" href="{{ .url }}">{{ .label }}</a>
+    {{ end }}
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-sig">{{ .Site.Params.firstName }} {{ .Site.Params.lastName }}</span>
+    <span class="footer-date">updated · {{ now.Format "Jan 2006" | lower }}</span>
+  </div>
+</footer>
+
+{{ end }}

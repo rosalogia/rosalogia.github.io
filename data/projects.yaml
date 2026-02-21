@@ -1,0 +1,8 @@
+- name: "STS"
+  desc: "A ticketing system that feels like home, for use with friends."
+  url: "https://github.com/rosalogia/simple-ticketing-service"
+  tag: "active"
+
+- name: "Lens"
+  desc: "Interactive video player for learning Chinese from a little web animation."
+  url: "https://github.com/rosalogia/lens"

@@ -1,0 +1,13 @@
+baseURL = "https://rosalogia.me"
+languageCode = "en-us"
+title = "Ambika Eshwar"
+theme = "rosalogia"
+
+[params]
+  domain      = "rosalogia.me"
+  firstName   = "Ambika"
+  lastName    = "Eshwar"
+  tagline     = "software engineer · herndon, va"
+  description = "Ambika Eshwar — Software Engineer at AWS EC2"
+  intro       = "Working on distributed systems and public-facing services at *AWS EC2*. I like solving hard problems with smart people."
+  accentColor = "#b03a3e"
